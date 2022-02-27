@@ -6,7 +6,7 @@ MAIUSCOLO = Primary key
 UTENTE(ID, nome, cognome, email, username, dataNascita, sesso, img, bio, ruolo)
 COMMENTI(ID, IDUtente*, IDPost*, testo, data)
 POST(ID, IDUtente*, colori, img, descrizione, sesso, situazione, data, pubblicato)
-METTE LIKE(ID, IDUtente*, IDPost*)
+LIKES(ID, IDUtente*, IDPost*)
 SALVA(ID, IDUtente*, IDPost*)
 TAG(ID, link, tipo)
 PRESENTA(ID, IDPost*, IDTag*)
