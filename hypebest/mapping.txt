@@ -3,7 +3,7 @@ MAIUSCOLO = Primary key
 * = Foreign key
 
 
-UTENTE(ID, nome, cognome, email, username, dataNascita, sesso, img, bio, ruolo)
+UTENTE(ID, nome, cognome, email, password, username, dataNascita, sesso, img, bio, ruolo)
 COMMENTI(ID, IDUtente*, IDPost*, testo, data)
 POST(ID, IDUtente*, colori, img, descrizione, sesso, situazione, data, pubblicato)
 LIKES(ID, IDUtente*, IDPost*)
