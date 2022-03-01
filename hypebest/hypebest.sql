@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 27, 2022 alle 17:17
--- Versione del server: 10.4.22-MariaDB
--- Versione PHP: 8.1.1
+-- Creato il: Mar 01, 2022 alle 10:40
+-- Versione del server: 10.4.6-MariaDB
+-- Versione PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,7 +32,7 @@ CREATE TABLE `commenti` (
   `ID` int(11) NOT NULL,
   `IDUtente` int(11) NOT NULL,
   `IDPost` int(11) NOT NULL,
-  `testo` varchar(256) NOT NULL,
+  `testo` varchar(255) NOT NULL,
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -80,8 +81,8 @@ CREATE TABLE `post` (
   `ID` int(11) NOT NULL,
   `IDUtente` int(11) NOT NULL,
   `colori` varchar(64) NOT NULL,
-  `img` varchar(256) NOT NULL,
-  `descrizione` varchar(256) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `descrizione` varchar(255) NOT NULL,
   `sesso` int(11) NOT NULL,
   `situazione` varchar(10) NOT NULL,
   `data` datetime NOT NULL,
@@ -132,7 +133,7 @@ CREATE TABLE `segue` (
 
 CREATE TABLE `tag` (
   `ID` int(11) NOT NULL,
-  `link` varchar(256) NOT NULL,
+  `link` varchar(255) NOT NULL,
   `tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -150,8 +151,8 @@ CREATE TABLE `utente` (
   `username` varchar(15) NOT NULL,
   `dataNascita` date NOT NULL,
   `sesso` int(11) NOT NULL,
-  `img` varchar(256) NOT NULL,
-  `bio` varchar(256) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `bio` varchar(255) NOT NULL,
   `ruolo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
