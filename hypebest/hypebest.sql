@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 01, 2022 alle 10:40
--- Versione del server: 10.4.6-MariaDB
--- Versione PHP: 7.3.8
+-- Creato il: Mar 01, 2022 alle 15:14
+-- Versione del server: 10.4.22-MariaDB
+-- Versione PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -153,7 +152,8 @@ CREATE TABLE `utente` (
   `sesso` int(11) NOT NULL,
   `img` varchar(255) NOT NULL,
   `bio` varchar(255) NOT NULL,
-  `ruolo` int(11) NOT NULL
+  `ruolo` int(11) NOT NULL,
+  `password` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
