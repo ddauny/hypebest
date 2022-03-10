@@ -8,6 +8,7 @@ import Home from "./screens/Home"
 import Profilo from "./screens/Profilo"
 import Ricerca from "./screens/Ricerca"
 import Accedi from "./screens/Accedi"
+import Registrazione from "./screens/Registrazione"
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -30,6 +31,8 @@ export default function Navigation(){
                         iconName=focused?"person":"person-outline";
                       }else if(route.name==="Accedi"){
                         iconName=focused?"flower":"flower-outline";
+                      }else if(route.name==="Registrazione"){
+                        iconName=focused?"eye":"eye-outline";
                       }
                       return <Ionicons name={iconName} size={30} color={"black"}/>
                   },
@@ -39,7 +42,8 @@ export default function Navigation(){
                 <Tab.Screen name="Ricerca" component={Ricerca}/>
                 <Tab.Screen name="Aggiungi" component={Aggiungi}/>
                 <Tab.Screen name="Profilo" component={Profilo}/>
-                <Tab.Screen name="Accedi" component={Accedi}/>
+                <Tab.Screen name="Accedi" component={Accedi} />
+                <Tab.Screen name="Registrazione" component={Registrazione} />
             </Tab.Navigator>
         </NavigationContainer>
     )

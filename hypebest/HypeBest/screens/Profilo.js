@@ -1,10 +1,10 @@
 import React from "react";
 import { Text,View,StyleSheet } from "react-native";
-
+import ProfileHeader from "../components/ProfileHeader";
 export default function Profilo(){
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+      <ProfileHeader/>
     </View>
   );
 }
