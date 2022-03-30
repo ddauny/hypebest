@@ -3,15 +3,15 @@ import { useState } from "react";
 import { Dimensions, TextInput, StatusBar, Image, ScrollView, FlatList } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Text, View, StyleSheet } from "react-native";
-import { Select, Box, CheckIcon, Center } from "native-base";
+import { Picker } from '@react-native-picker/picker';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 import back from "../assets/back1.png";
 const { width, height } = Dimensions.get("window");
 
 export default function Registrazione() {
-    const [selectedValue, setSelectedValue] = useState("java");
-    const [service, setService] = useState("");
+
+
     const [selectDate, setSelectDate] = useState("Seleziona data di nascita:");
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
@@ -49,12 +49,7 @@ export default function Registrazione() {
     //     },
     //   ];
 
-    //   const renderItem = ({ item }) => <Item title={item.title} />;
-    //   const Item = ({ title }) => (
-    //     <View style={styles.item}>
-    //       <Text style={styles.titleItem}>{title}</Text>
-    //     </View>
-    //   );
+
     return (
 
         <View style={styles.mainContainer}>
@@ -68,15 +63,9 @@ export default function Registrazione() {
                     <TextInput style={styles.textInput} placeholder="Cognome"></TextInput>
 
 
-                    <Select style={styles.date} selectedValue={service} minWidth="200" accessibilityLabel="Seleziona il genere" placeholder="Seleziona il genere" _selectedItem={{
-                        bg: "teal.600",
-                        endIcon: <CheckIcon size="5" />
-                    }} mt={1} onValueChange={itemValue => setService(itemValue)}>
-                        <Select.Item label="Uomo" value="ux" />
-                        <Select.Item label="Donna" value="web" />
-                        <Select.Item label="Preferisco non specificarlo" value="cross" />
-                    </Select>
-
+                    {/* <Picker.Item label="Uomo" value="Uomo" />
+                        <Picker.Item label="Donna" value="Donna" />
+                        <Picker.Item label="Preferisco non specificarlo" value="Preferisco non specificarlo" /> */}
 
 
                     <TouchableOpacity style={styles.date} onPress={showDatePicker}>
@@ -118,18 +107,22 @@ const styles = StyleSheet.create({
         // paddingTop: "40%",
         // width:width,
         // height:height,
-        // position: "absolute",
+        position: "relative",
+        top: "20%",
     },
-    item: {
-        backgroundColor: '#f9c2ff',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-
+    picker: {
+        height: 50,
+        marginTop: 10,
+        borderRadius: 15,
+        textAlign: "center",
+        backgroundColor: "#f6f7fb",
+        marginLeft: "10%",
+        marginRight: "10%",
+        borderColor: "#f6f7fb",
     },
     scrollView: {
-        // paddingTop: "40%",
         width: "100%",
+        height: "100%",
         // height:300,
         // marginHorizontal: 20,
 

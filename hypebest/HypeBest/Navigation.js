@@ -1,6 +1,8 @@
 import React from "react";
 
-import { NavigationContainer,Button } from "@react-navigation/native";
+import { Button } from "native-base";
+
+import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Aggiungi from "./screens/Aggiungi"
@@ -39,15 +41,15 @@ export default function Navigation() {
           tabBarShowLabel: false
         })}>
         <Tab.Screen name="Home" component={Home}
-          // options={{
-          //   headerRight: () => (
-          //     <Button
-          //       onPress={() => alert('This is a button!')}
-          //       title="Info"
-          //       color="#00cc00"
-          //     />
-          //   ),
-          // }}
+          options={{
+            headerRight: () => (
+              <Button
+                onPress={() => alert('This is a button!')}
+                title="Info"
+                color="#00cc00"
+              />
+            ),
+          }}
 
         />
         <Tab.Screen name="Ricerca" component={Ricerca} />
