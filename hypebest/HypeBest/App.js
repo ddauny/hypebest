@@ -1,10 +1,10 @@
 import React from "react";
-import Navigation from "./Navigation";
+import RootNavigator from "./NavBar/RootNavigator";
 import { NativeBaseProvider } from 'native-base';
 export default function App() {
   return (
     <NativeBaseProvider>
-      <Navigation />
+      <RootNavigator />
     </NativeBaseProvider>
   );
 }

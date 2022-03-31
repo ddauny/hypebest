@@ -1,11 +1,17 @@
 import React from "react";
 
-import { Text,View,StyleSheet } from "react-native";
+import { View, StyleSheet ,ScrollView} from "react-native";
+import Post from "../components/Post"
 
-export default function Home(){
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+      <ScrollView style={styles.scrollView}>
+        <Post />
+        <Post />
+        <Post />
+      </ScrollView>
+
     </View>
   );
 }
@@ -20,4 +26,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  scrollView: {
+    width: "100%",
+    height: "100%",
+    // height:300,
+    // marginHorizontal: 20,
+
+},
 });
