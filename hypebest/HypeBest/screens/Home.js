@@ -7,9 +7,9 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Post />
-        <Post />
-        <Post />
+        <Post username={"Marco"} descrizione="sjahdaskdkjsahdjasdkjahsd"/>
+        <Post username={"Daniele"}/>
+        <Post username={"Baro"}/>
       </ScrollView>
 
     </View>

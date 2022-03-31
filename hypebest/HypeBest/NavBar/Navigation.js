@@ -51,10 +51,10 @@ export default function Navigation({ navigation }) {
           component={Home}
           options={({ navigation, route }) => ({
             headerLeft: (props) => <LogoTitle />,
-            headerTitle: '',
+            headerTitle: 'HypeBest',
             headerRight: () => (
               <Ionicons
-                name={'person'}
+                name={'person-outline'}
                 style={{ right: 20 }}
                 size={30}
                 color={'black'}

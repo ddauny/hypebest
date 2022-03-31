@@ -4,12 +4,14 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 import logo from '../assets/icon.png';
 import { Ionicons } from '@expo/vector-icons';
 
+
+
 export default function Post(props) {
     return (
         <View style={styles.container}>
             <View style={styles.title}>
                 <Image style={styles.titleUserPic} source={logo} />
-                <Text style={styles.titleUsername}> Ciao amici miei</Text>
+                <Text style={styles.titleUsername}> {props.username}</Text>
                 <Ionicons
                     name={'heart-outline'}
                     size={30}
@@ -20,7 +22,7 @@ export default function Post(props) {
             </View>
             <Image style={styles.userPictur} source={logo} />
             <View style={styles.commenti}>
-            <Text > Ciao amici miei</Text>
+                <Text > {props.descrizione}</Text>
             </View>
         </View>
     );
@@ -28,7 +30,7 @@ export default function Post(props) {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop:30,
+        marginTop: 30,
         width: '100%',
         height: 614,
         maxHeight: 614,
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
         // paddingHorizontal: 15,
         borderWidth: 2,
         borderColor: 'black',
-        backgroundColor:"white",
+        backgroundColor: "white",
     },
     title: {
         // flexDirection: 'row',
