@@ -8,9 +8,9 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function Post(props) {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container]} >
             <View style={styles.title}>
-                <Image style={styles.titleUserPic} source={logo} />
+                <Image style={styles.titleUserPic} alt={logo} source={logo} />
                 <Text style={styles.titleUsername}> {props.username}</Text>
                 <Ionicons
                     name={'heart-outline'}
@@ -20,8 +20,9 @@ export default function Post(props) {
                     style={styles.like}
                 />
             </View>
-            <Image style={styles.userPictur} source={logo} />
+            <Image style={styles.userPictur} alt={logo} source={logo} />
             <View style={styles.commenti}>
+                <Text style={{fontWeight:"bold"}}> {props.username}:</Text>
                 <Text > {props.descrizione}</Text>
             </View>
         </View>

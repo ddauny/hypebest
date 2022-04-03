@@ -15,7 +15,7 @@ export default function Accedi({ navigation }) {
   useEffect(() => {
     const unsubscribe=auth.onAuthStateChanged(user=>{
       if(user){
-        navigation.navigate('Home', { screen: 'Home' })
+        navigation.navigate('Navigation', { screen: 'Navigation' })
       }
     })
     return unsubscribe;

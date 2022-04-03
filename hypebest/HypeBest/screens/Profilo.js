@@ -1,10 +1,15 @@
 import React from "react";
 import { Text,View,StyleSheet } from "react-native";
 import ProfileHeader from "../components/ProfileHeader";
-export default function Profilo(){
+import { auth } from "../firebase"
+import Post from "../components/Post"
+
+export default function Profilo(props){
   return (
     <View style={styles.container}>
-      <ProfileHeader/>
+      <ProfileHeader style={styles.header} user={props}/>
+      <Post altezza={50} larghezza={50} username={"Marco"} descrizione="sjahdaskdkjsahdjasdkjahsd" />
+
     </View>
   );
 }
@@ -14,6 +19,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    top:0,
+  },
+  header:{
+    position:"absolute",
   },
   title: {
     fontSize: 20,

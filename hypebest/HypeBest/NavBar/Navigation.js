@@ -20,7 +20,7 @@ const Tab = createBottomTabNavigator();
 
 
 function LogoTitle() {
-  return <Image style={{ width: 70, height: 50, left: 0 }} source={logo} />;
+  return <Image style={{ width: 70, height: 50, left: 0 }} alt={logo} source={logo} />;
 }
 
 export default function Navigation({ navigation }) {
@@ -66,8 +66,8 @@ export default function Navigation({ navigation }) {
         <Tab.Screen name="Ricerca" component={Ricerca} />
         <Tab.Screen name="Aggiungi" component={Aggiungi} />
         {/* <Tab.Screen name="Profilo" component={Profilo} /> */}
-        <Tab.Screen name="Accedi" component={Accedi} />
-        <Tab.Screen name="Registrazione" component={Registrazione} />
+         {/* <Tab.Screen name="Accedi" component={Accedi} /> */}
+        {/* <Tab.Screen name="Registrazione" component={Registrazione} /> */}
       </Tab.Navigator>
   );
 }

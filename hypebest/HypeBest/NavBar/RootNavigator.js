@@ -13,15 +13,15 @@ const Stack = createStackNavigator();
 export default function RootNavigator() {
   return (
     <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name="Navigation" component={Navigation} options={{ headerShown: false }} />
-      {/* <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} /> */}
-      {/* <Stack.Group screenOptions={{ presentation: 'card' }}> */}
-      <Stack.Screen name="Accedi" component={Accedi}  />
-      <Stack.Screen name="Registrazione" component={Registrazione} />
+      <Stack.Navigator >
+        <Stack.Screen name="Accedi" component={Accedi} />
+        <Stack.Screen name="Registrazione" component={Registrazione} />
+        <Stack.Screen name="Navigation" component={Navigation} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} /> */}
+        {/* <Stack.Group screenOptions={{ presentation: 'card' }}> */}
         <Stack.Screen name="Profile" component={Profile} />
-      {/* </Stack.Group> */}
-    </Stack.Navigator>
+        {/* </Stack.Group> */}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
