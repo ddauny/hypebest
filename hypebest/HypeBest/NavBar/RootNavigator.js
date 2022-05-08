@@ -6,6 +6,8 @@ import Navigation from "./Navigation"
 import Profile from "../screens/Profilo"
 import Accedi from '../screens/Accedi';
 import Registrazione from '../screens/Registrazione';
+import Camera from '../components/Camera';
+import ImagePickerHype from '../components/ImagePickerHype';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +22,8 @@ export default function RootNavigator() {
         {/* <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} /> */}
         {/* <Stack.Group screenOptions={{ presentation: 'card' }}> */}
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Camera" component={Camera} />
+        <Stack.Screen name="ImagePickerHype" component={ImagePickerHype} />
         {/* </Stack.Group> */}
       </Stack.Navigator>
     </NavigationContainer>

@@ -3,7 +3,8 @@ import { Dimensions, TextInput, Image } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Text, View, StyleSheet, TouchableWithoutFeedback, Keyboard } from "react-native";
 
-import { auth } from "../firebase"
+// import { auth } from "../firebase"
+
 
 import back from "../assets/back1.png";
 const { width, height } = Dimensions.get("window");
@@ -13,32 +14,32 @@ export default function Accedi({ navigation }) {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    const unsubscribe=auth.onAuthStateChanged(user=>{
-      if(user){
+    // const unsubscribe=auth.onAuthStateChanged(user=>{
+    //   if(user){
         navigation.navigate('Navigation', { screen: 'Navigation' })
-      }
-    })
-    return unsubscribe;
+    //   }
+    // })
+    // return unsubscribe;
   }, [])
 
   const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log("register in wiht", user.email);
-      })
-      .catch(error => alert(error.message))
+    // auth
+    //   .createUserWithEmailAndPassword(email, password)
+    //   .then(userCredentials => {
+    //     const user = userCredentials.user;
+    //     console.log("register in wiht", user.email);
+    //   })
+    //   .catch(error => alert(error.message))
   }
 
   const handleLogin = () => {
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log("logged in with", user.email);
-      })
-      .catch(error => alert(error.message))
+    // auth
+    //   .signInWithEmailAndPassword(email, password)
+    //   .then(userCredentials => {
+    //     const user = userCredentials.user;
+    //     console.log("logged in with", user.email);
+    //   })
+    //   .catch(error => alert(error.message))
   }
   return (
     <View style={styles.mainContainer}>

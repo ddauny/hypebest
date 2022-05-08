@@ -2,10 +2,16 @@ import React from "react";
 
 import { Text,View ,StyleSheet} from "react-native";
 
-export default function Aggiungi(){
+export default function Aggiungi({ navigation }){
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+      <Text style={styles.title} 
+      onPress={() => navigation.navigate('Camera', { screen: 'Camera' })}
+      >Apri Camera</Text>
+
+            <Text style={styles.title} 
+      onPress={() => navigation.navigate('ImagePickerHype', { screen: 'ImagePickerHype' })}
+      >Apri Galleria</Text>
     </View>
   );
 }
