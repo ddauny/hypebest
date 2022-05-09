@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet ,Text, View, Button, Image,TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Button, Image, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 
 export default function App() {
@@ -7,16 +7,16 @@ export default function App() {
   const [camera, setCamera] = useState(null);
   const [image, setImage] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
-useEffect(() => {
+  useEffect(() => {
     (async () => {
-      const cameraStatus = await Camera.requestPermissionsAsync();
+      const cameraStatus = await Camera.requestCameraPermissionsAsync();
       setHasCameraPermission(cameraStatus.status === 'granted');
-})();
+    })();
   }, []);
-const takePicture = async () => {
-    if(camera){
-        const data = await camera.takePictureAsync(null)
-        setImage(data.uri);
+  const takePicture = async () => {
+    if (camera) {
+      const data = await camera.takePictureAsync(null)
+      setImage(data.uri);
     }
   }
 
@@ -24,14 +24,14 @@ const takePicture = async () => {
     return <Text>No access to camera</Text>;
   }
   return (
-   <View style={styles.container}>
+    <View style={styles.container}>
       <Camera ref={ref => setCamera(ref)}
-            style={styles.camera}
-            type={type}
-             ratio={'1:1'}  >
-      <View style={styles.buttonContainer}>
-      <TouchableOpacity
-      style={styles.button}
+        style={styles.camera}
+        type={type}
+        ratio={'1:1'}  >
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.button}
             title="Flip Image"
             onPress={() => {
               setType(
@@ -41,25 +41,25 @@ const takePicture = async () => {
               );
             }}>
             <Text style={styles.text}> Flip </Text>
-        </TouchableOpacity>
-       <TouchableOpacity title="Take Picture" onPress={() => takePicture()} style={styles.buttonCamera} />
-                    </View>
-                          </Camera>
-        {image && <Image source={{uri: image}} style={{flex:1}}/>}
-   </View>
+          </TouchableOpacity>
+          <TouchableOpacity title="Take Picture" onPress={() => takePicture()} style={styles.buttonCamera} />
+        </View>
+      </Camera>
+      {image && <Image source={{ uri: image }} style={{ flex: 1 }} />}
+    </View>
   );
 }
 const styles = StyleSheet.create({
   cameraContainer: {
-      flex: 1,
-      flexDirection: 'row'
+    flex: 1,
+    flexDirection: 'row'
   },
-  fixedRatio:{
-      flex: 1,
-      aspectRatio: 1
+  fixedRatio: {
+    flex: 1,
+    aspectRatio: 1
   },
 
-    container: {
+  container: {
     flex: 1,
   },
   camera: {
@@ -76,16 +76,16 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     alignItems: 'center',
   },
-  buttonCamera:{
-    position:"absolute",
-                width: 70,
-            height: 70,
-            bottom: 0,
-            borderRadius: 50,
-            borderWidth:2,
-            borderColor:"black",
-            backgroundColor: '#fff',
-            left:"40%",
+  buttonCamera: {
+    position: "absolute",
+    width: 70,
+    height: 70,
+    bottom: 0,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: "black",
+    backgroundColor: '#fff',
+    left: "40%",
   },
   text: {
     fontSize: 18,
