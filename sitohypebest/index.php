@@ -6,7 +6,7 @@
 <?php
 session_start();
 include("login/connection.php");
-$sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente descrizione from post join segue on IDSeguace = $_SESSION[idutente] join utente on IDSeguito = utente.ID where pubblicato = 1 order by post.ID asc";
+$sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione from post join segue on IDSeguace = $_SESSION[idutente] join utente on IDSeguito = utente.ID where pubblicato = 1 order by post.ID asc";
 $result = mysqli_query($conn, $sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
