@@ -27,7 +27,7 @@
                     <label for="cognome"><b>Cognome</b></label>
                     <input type="text" placeholder="Cognome" id="cognome" name="cognome" required>
 
-                    <label for="email"><b>Email</b></label>
+                    <label for="email"><b>Email</b></label><br>
                     <input type="email" placeholder="Email" id="email" name="email" required>
 
                     <label for="username"><b>Username</b></label>
@@ -38,14 +38,14 @@
                     <input type="password" placeholder="Password" id="password" name="password" required>
 
                     <label for="data"><b>Data di nascita</b></label>
-                    <input type="date" id="data" name="data" value="2000-01-01" min="1920-01-01" requirad>
-
+                    <input type="date" id="data" name="data" value="2000-01-01" min="1920-01-01" required>
+                    <br><br>
                     <label for="sesso"><b>Sesso</b></label>
                     <select id="sesso" name="sesso" required>
                         <option value=0>Maschio</option>
                         <option value=1>Femmina</option>
                         <option value=2>Preferisco non specificare</option>
-                    </select>
+                    </select><br><br>
 
                     <label for="img"><b>Immagine profilo</b></label>
                     <input name="img" id="img" type="file" required />
@@ -55,6 +55,7 @@
 
                     <div class="container" style="background-color:white">
                         <button type="reset" value="Cancella" class="cancelbtn"><b>Cancella Tutto</b></button>
+                        <br>
                         <br><button onclick="submit()"><b>Registrati</b></button>
                     </div>
                 </div>

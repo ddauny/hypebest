@@ -6,7 +6,7 @@ form {
     border: 3px solid #f1f1f1;
 }
 
-input[type=e-mail], input[type=password], input[type=text] {
+input[type=email], input[type=password], input[type=text], input[type=date], input[type=file] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

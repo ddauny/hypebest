@@ -28,4 +28,5 @@ if (isset($_SESSION["idutente"])) {
         $sql->execute();
     }
 }
+header("location:profilo.php");
 ?>
