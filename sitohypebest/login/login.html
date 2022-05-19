@@ -5,20 +5,24 @@
     <title>HypeBest - Login</title>
 </head>
 <link rel="stylesheet" href="../css/styleLogin.css" type="text/css">
+
 <body>
     <h3>Login:</h3>
     <form action="chkLogin.php" method="post">
+        <div class="container">
+            <label for="username">Username</label>
+            <input type="text" placeholder="username" id="username" name="username" required>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="username" id="username" name="username" required>
+            <label for="Password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password" required>
 
-        <label for="Password">Password</label>
-        <input type="password" placeholder="Password" id="password" name="password" required>
-
-        <br><input type="submit" value="Login">
-
+            <br><input type="submit" value="Login">
+        </div>
+        <div class="container" style="background-color:white">
+            <button type="reset" value ="Cancella" class="cancelbtn">Cancella Tutto</button>
+            <span class="password"><a href="registrazione.html">Password dimenticata?</a></span>
+        </div>
     </form>
-    <a href="registrazione.html">Clicca per registrarti</a>
 </body>
 
 </html>
