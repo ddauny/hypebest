@@ -16,8 +16,8 @@ input[type=e-mail], input[type=password], input[type=text] {
 }
 
 button {
-    background-color: #020202;
-    color: white;
+    background-color: red;
+    color: black;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
