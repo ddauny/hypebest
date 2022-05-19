@@ -17,13 +17,14 @@ input[type=text], input[type=password] {
 }
 
 button {
-    background-color: red;
+    background-color: rgb(236, 42, 42);
     color: black;
     padding: 14px 20px;
     margin: 8px 0;
-    border: none;
+    border: solid black 1px;
     cursor: pointer;
     width: 100%;
+    
 }
 
 button:hover {
@@ -33,7 +34,7 @@ button:hover {
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: red;
+    background-color: rgb(236, 42, 42);
 }
 
 .container {

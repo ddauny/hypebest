@@ -7,27 +7,33 @@
     <link rel="stylesheet" href="../css/styleLogin.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function submit() {
+            $('#form').submit();
+
+        }
+    </script>
+
 </head>
 
 
 <body>
-
+    <br>
     <div class="container-fluid">
         <div class="">
-            <h3>Login:</h3>
-            <form action="chkLogin.php" method="post">
-
+            <form id="form" action="chkLogin.php" method="post">
+                
                 <div class="container">
-                    <label for="username">Username</label>
-                    <input type="text" placeholder="username" id="username" name="username" required>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Username" id="username" name="username" required>
 
-                    <label for="Password">Password</label>
+                    <label for="Password"><b>Password</b></label>
                     <input type="password" placeholder="Password" id="password" name="password" required>
-
-                    <br><input type="submit" value="Login">
+                    <br>
+                    <br><button onclick="submit()"><b>Login</b></button>
                 </div>
-                <div class="container" style="background-color:black">
-                    <button type="reset" value="Cancella" class="cancelbtn">Cancella Tutto</button>
+                <div class="container" style="background-color:white">
+                    <button type="reset" value="Cancella" class="cancelbtn"><b>Cancella Tutto</b></button>
                     <span class="password"><a href="registrazione.html">Password dimenticata?</a></span>
                 </div>
 
