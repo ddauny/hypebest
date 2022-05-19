@@ -5,44 +5,48 @@
     <title>HypeBest - Registrazione</title>
 </head>
 <link rel="stylesheet" href="../css/styleRegistrazione.css" type="text/css">
+
 <body>
     <h3>Registrazione:</h3>
     <form action="chkRegistrazione.php" enctype="multipart/form-data" method="post">
+        <div class="container">
+            <label for="nome">Nome</label>
+            <input type="text" placeholder="Nome" id="nome" name="nome" required>
 
-        <label for="nome">Nome</label>
-        <input type="text" placeholder="Nome" id="nome" name="nome" required>
+            <label for="cognome">Cognome</label>
+            <input type="text" placeholder="Cognome" id="cognome" name="cognome" required>
 
-        <label for="cognome">Cognome</label>
-        <input type="text" placeholder="Cognome" id="cognome" name="cognome" required>
+            <label for="email">Email</label>
+            <input type="email" placeholder="Email" id="email" name="email" required>
 
-        <label for="email">Email</label>
-        <input type="email" placeholder="Email" id="email" name="email" required>
-
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" id="username" name="username" required>
+            <label for="username">Username</label>
+            <input type="text" placeholder="Username" id="username" name="username" required>
 
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" name="password" required>
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password" required>
 
-        <label for="data">Data di nascita</label>
-        <input type="date" id="data" name="data" value="2000-01-01" min="1920-01-01" requirad>
+            <label for="data">Data di nascita</label>
+            <input type="date" id="data" name="data" value="2000-01-01" min="1920-01-01" requirad>
 
-        <label for="sesso">Sesso</label>
-        <select id="sesso" name="sesso" required>
-            <option value=0>Maschio</option>
-            <option value=1>Femmina</option>
-            <option value=2>Preferisco non specificare</option>
-        </select>
+            <label for="sesso">Sesso</label>
+            <select id="sesso" name="sesso" required>
+                <option value=0>Maschio</option>
+                <option value=1>Femmina</option>
+                <option value=2>Preferisco non specificare</option>
+            </select>
 
-        <label for="img">Immagine profilo</label>
-        <input name="img" id="img" type="file" required/>
+            <label for="img">Immagine profilo</label>
+            <input name="img" id="img" type="file" required />
 
-        <label for="bio">Biografia</label>
-        <input type="text" id="bio" name="bio" requirad>
+            <label for="bio">Biografia</label>
+            <input type="text" id="bio" name="bio" requirad>
 
-        <br><input type="submit" value="Registrati">
-         
+            <div class="container" style="background-color:white">
+                <button type="reset" value="Cancella" class="cancelbtn">Cancella Tutto</button>
+                <button type="submit">Registrati</button>
+            </div>
+        </div>
     </form>
 </body>
 

@@ -9,25 +9,25 @@
 <body>
     <h3>Aggiungi Post:</h3>
     <form action="chkAddPost.php" enctype="multipart/form-data" method="post">
+        <div class="container">
+            <label for="situazione"></label>
+            <input type="text" placeholder="Situazione" id="situazione" name="situazione" required>
 
-        <label for="situazione"></label>
-        <input type="text" placeholder="Situazione" id="situazione" name="situazione" required>
+            <label for="descrizione">descizione</label>
+            <input type="text" placeholder="Descrizione" id="descrizione" name="descrizione" required>
 
-        <label for="descrizione">descizione</label>
-        <input type="text" placeholder="Descrizione" id="descrizione" name="descrizione" required>
+            <label for="sesso">Sesso</label>
+            <select id="sesso" name="sesso" required>
+                <option value=0>Maschio</option>
+                <option value=1>Femmina</option>
+                <option value=2>Preferisco non specificare</option>
+            </select>
 
-        <label for="sesso">Sesso</label>
-        <select id="sesso" name="sesso" required>
-            <option value=0>Maschio</option>
-            <option value=1>Femmina</option>
-            <option value=2>Preferisco non specificare</option>
-        </select>
+            <label for="img">Immagine</label>
+            <input name="img" id="img" type="file" required />
 
-        <label for="img">Immagine</label>
-        <input name="img" id="img" type="file" required />
-
-        <br><input type="submit" value="Aggiungi Post">
-
+            <br><input type="submit" value="Aggiungi Post">
+        </div>
     </form>
 </body>
 
