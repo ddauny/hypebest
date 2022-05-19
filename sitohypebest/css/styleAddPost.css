@@ -17,11 +17,11 @@ input[type=file], input[type=text], .cate, .brand {
 }
 
 button {
-    background-color: red;
+    background-color: rgb(236, 42, 42);
     color: black;
     padding: 14px 20px;
     margin: 8px 0;
-    border: none;
+    border: solid black 1px;
     cursor: pointer;
     width: 100%;
 }
