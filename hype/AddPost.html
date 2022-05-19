@@ -1,0 +1,34 @@
+<!DOCTYPE html> <html lang="en">  <head>     <title>HypeBest - Registrazione</title> </head>  <body>     <h3>Registrazione:</h3>     <form action="chkRegistrazione.php" enctype="multipart/form-data" method="post">          <label for="nome">Nome</label>         <input type="text" placeholder="Nome" id="nome" name="nome" required>          <label for="cognome">Cognome</label>         <input type="text" placeholder="Cognome" id="cognome" name="cognome" required>          <label for="email">Email</label>         <input type="email" placeholder="Email" id="email" name="email" required>          <label for="username">Username</label>         <input type="text" placeholder="Username" id="username" name="username" required>           <label for="password">Password</label>         <input type="password" placeholder="Password" id="password" name="password" required>          <label for="data">Data di nascita</label>         <input type="date" id="data" name="data" value="2000-01-01" min="1920-
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <title>HypeBest - Aggiungi Post</title>
+    </head>
+    
+    <body>
+        <h3>Aggiungi Post:</h3>
+        <form action="chkAddPost.php" enctype="multipart/form-data" method="post">
+    
+            <label for="situazione"></label>
+            <input type="text" placeholder="Situazione" id="situazione" name="situazione" required>
+    
+            <label for="descrizione">descizione</label>
+            <input type="text" placeholder="Descrizione" id="descrizione" name="descrizione" required>
+      
+            <label for="sesso">Sesso</label>
+            <select id="sesso" name="sesso" required>
+                <option value=0>Maschio</option>
+                <option value=1>Femmina</option>
+                <option value=2>Preferisco non specificare</option>
+            </select>
+    
+            <label for="img">Immagine</label>
+            <input name="img" id="img" type="file" required/>
+    
+            <br><input type="submit" value="Aggiungi Post">
+    
+        </form>
+    </body>
+    
+    </html>
