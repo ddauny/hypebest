@@ -1,0 +1,19 @@
+a.disabled:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a.disabled:link {
+    color: white;
+    text-decoration: none;
+  }
+
+.disabledU:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.disabledU:link {
+    color: black;
+    text-decoration: none;
+  }
