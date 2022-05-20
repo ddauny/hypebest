@@ -53,7 +53,7 @@ include("login/connection.php");
             </form>
 
             <div class="text-end">
-                <button type="button" style="border:0px solid white" class="btn btn-outline-light me-2"><a class="disabled"href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
+                <button type="button" style="border:0px solid white" class="btn btn-outline-light me-2"><a class="disabled" href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
                 <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
                 <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
             </div>
@@ -65,16 +65,17 @@ include("login/connection.php");
     <div class="container">
 
         <?php
-        $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione from post join segue on IDSeguace = $_SESSION[idutente] join utente on IDSeguito = utente.ID where pubblicato = 1 order by post.ID asc";
-        $result = mysqli_query($conn, $sql);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo
-                "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
+        if (isset($_SESSION["idutente"])) {
+            $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione from post join utente on post.IDUtente = utente.ID join segue on utente.ID = segue.IDSeguito where pubblicato = 1 and segue.IDSeguace = 4 order by post.ID asc";
+            $result = mysqli_query($conn, $sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo
+                    "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
                 <div style='margin-left: 6px;margin-top:6px'>
                     <div class='card-title'>
                     <img src='$row[imgpost]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
-                    <a class='disabledU' style='font-weight:bold;margin-left:5px'href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
+                    <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
                 </div>
 
                 <div><img src='$row[imgpost]' class='card-img-top' ></div>  
@@ -88,20 +89,69 @@ include("login/connection.php");
                 </div>
 
                 <div class='card-body'>
-                    <p class='card-text'><a style='font-weight:bold'>$row[username]: </a> $row[descrizione]</p>
+                    <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                 ";
-                $sqlcommenti = "select testo, data, username, utente.ID as idutente from commenti inner join utente on IDUtente = utente.ID where IDPost = $row[idpost]";
-                $resultcommenti = mysqli_query($conn, $sqlcommenti);
-                if ($resultcommenti->num_rows > 0) {
-                    
-                    while ($row = $resultcommenti->fetch_assoc()) {
-                        echo "<div class='card-text'><a class='disabledU' style='font-weight:bold' id=$row[username] href='profilo.php?idprofilo=$row[idutente]'>$row[username]:</a> <label for='$row[username]'>$row[testo]</label> <label>$row[data]</label></div>";
+                    $sqlcommenti = "select testo, data, username, utente.ID as idutente from commenti inner join utente on IDUtente = utente.ID where IDPost = $row[idpost]";
+                    $resultcommenti = mysqli_query($conn, $sqlcommenti);
+                    if ($resultcommenti->num_rows > 0) {
+                        echo "<p>Commenti:</p>";
+                        while ($row = $resultcommenti->fetch_assoc()) {
+                            echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label for='$row[username]'>$row[testo]</label> <label>$row[data]</label></div>";
+                        }
                     }
-                    
+
+                    echo "</div></div>";
+                }
+            } else { //sono loggato ma non seguo nessuno, suggerisco i post dagli interessi
+                $sql = "select interesse.interesse as interesse from possiede join interesse on IDInteresse = interesse.ID where IDUtente = $_SESSION[idutente]";
+                $result = mysqli_query($conn, $sql);
+                $interessi = array();
+                while ($row = $result->fetch_assoc()) {
+                    array_push($interessi, $row["interesse"]);
                 }
 
-                echo "</div></div>";
+                foreach ($interessi as $interesse) {
+                    $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione from post join utente on post.IDUtente = utente.ID where pubblicato = 1 and post.situazione like '%$interesse%' order by post.ID asc";
+                    $result = mysqli_query($conn, $sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo
+                            "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
+                        <div style='margin-left: 6px;margin-top:6px'>
+                            <div class='card-title'>
+                            <img src='$row[imgpost]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
+                            <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
+                        </div>
+        
+                        <div><img src='$row[imgpost]' class='card-img-top' ></div>  
+        
+                        <div style='position:relative;margin-top:5px; margin-right:5px' >
+                            <div style='float:right;'>
+                                <button class='border-0 bg-transparent' onclick='like($row[idpost])'><i id='like$row[idpost]' class='fa-regular fa-heart fa-lg'></i></button>
+                                <button class='border-0 bg-transparent' onclick='save($row[idpost])'><i id='save$row[idpost]' class='fa fa-regular fa-shoe-prints fa-lg'></i></button>
+                                <button class='border-0 bg-transparent' onclick='tag($row[idpost])'><i class='fa fa-regular fa-tag fa-lg'></i></button>
+                            </div>
+                        </div>
+        
+                        <div class='card-body'>
+                            <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
+                        ";
+                            $sqlcommenti = "select testo, data, username, utente.ID as idutente from commenti inner join utente on IDUtente = utente.ID where IDPost = $row[idpost]";
+                            $resultcommenti = mysqli_query($conn, $sqlcommenti);
+                            if ($resultcommenti->num_rows > 0) {
+                                echo "<p>Commenti:</p>";
+                                while ($row = $resultcommenti->fetch_assoc()) {
+                                    echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label for='$row[username]'>$row[testo]</label> <label>$row[data]</label></div>";
+                                }
+                            }
+
+                            echo "</div></div>";
+                        }
+                    }
+                }
             }
+        } else {
+            header("location:index.php");
         }
         ?>
 
