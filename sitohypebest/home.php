@@ -4,85 +4,11 @@ include("login/connection.php");
 ?>
 
 <head>
-    <style>
-        /* Popup container - can be anything you want */
-        .popup {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* The actual popup */
-        .popup .popuptext {
-            visibility: hidden;
-            width: 160px;
-            background-color: #DCDCDC;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 8px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -80px;
-        }
-
-        /* Popup arrow */
-        .popup .popuptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #DCDCDC transparent transparent transparent;
-        }
-
-        /* Toggle this class - hide and show the popup */
-        .popup .show {
-            visibility: visible;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s;
-        }
-
-        /* Add animation (fade in the popup) */
-        @-webkit-keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        function popup() {
-            var popup = document.getElementById("myPopup");
-            popup.classList.toggle("show");
-        }
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <title>Home</title>
-
+    <script src="js/tag.js"></script>
     <script src="https://kit.fontawesome.com/bc3de12e9c.js" crossorigin="anonymous"></script>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
@@ -96,6 +22,7 @@ include("login/connection.php");
     <!-- Custom styles for this template -->
     <link href="css/headers.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/tag.css" rel="stylesheet">
 </head>
 <nav class="navbar navbar-expand-lg p-3 text-white" style="background-color: #c82a1e;">
     <div class="container-fluid">
