@@ -39,8 +39,14 @@
                 echo "</select><br>";
             }
             ?>
+
+            <label for="tag"><b>Tag<b></label>
+            <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
+            <label for="nometag"><b>Nome Tag<b></label>
+            <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag">
+            <button onclick='addTag()'></button>
             <br><button onclick="submit()"><b>Aggiungi Post</b></button><br>
-            
+
         </div>
     </form>
 </body>

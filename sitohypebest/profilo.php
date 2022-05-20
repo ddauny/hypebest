@@ -75,10 +75,10 @@ include("login/connection.php");
         $resultutente = mysqli_query($conn, $sqlutente);
         $rowutente = $resultutente->fetch_assoc();
 
-        $sqlpost = "select * from post where IDUtente = $idutente";
+        $sqlpost = "select * from post where IDUtente = $idutente and pubblicato = 1";
         $resultpost = mysqli_query($conn, $sqlpost);
 
-        $sqlnpost = "select count(*) from post where IDUtente = $idutente";
+        $sqlnpost = "select count(*) from post where IDUtente = $idutente and pubblicato = 1";
         $resultnpost = mysqli_query($conn, $sqlnpost);
         $rpost = $resultnpost->fetch_assoc();
         $npost = $rpost["count(*)"]; //npost è il numero dei post dell'utente
