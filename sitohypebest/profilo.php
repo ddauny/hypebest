@@ -127,7 +127,7 @@ include("login/connection.php");
         <div class=''>$nsave salvataggi</div>
  </div>
  <hr>
-
+ 
 ";
 
         //COMINCIA VISUALIZZAZIONE DEI POST
