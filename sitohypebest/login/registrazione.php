@@ -39,12 +39,20 @@
                     <label for="data"><b>Data di nascita</b></label>
                     <input type="date" id="data" name="data" value="2000-01-01" min="1920-01-01" required>
                     <br><br>
-                    <label for="sesso"><b>Sesso</b></label>
+
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected>Sesso</option>
+                        <option value="0">Maschio</option>
+                        <option value="1">Femmina</option>
+                        <option value="2">Preferisco non specificare</option>
+                    </select>
+
+                    <!-- <label for="sesso"><b>Sesso</b></label>
                     <select id="sesso" name="sesso" required>
                         <option value=0>Maschio</option>
                         <option value=1>Femmina</option>
                         <option value=2>Preferisco non specificare</option>
-                    </select><br><br>
+                    </select><br><br> -->
 
                     <label for="interesse"><b>Interesse</b></label>
                     <?php
