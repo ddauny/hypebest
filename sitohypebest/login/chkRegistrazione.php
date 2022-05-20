@@ -2,7 +2,7 @@
 session_start();
 include("connection.php");
 if (!isset($_SESSION["idutente"])) {
-    $uploaddir = '../img/';
+    $uploaddir = 'img/';
     $uploadfile = $uploaddir . basename($_FILES['img']['name']);
 
     $password = $_POST["password"];
