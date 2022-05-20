@@ -66,7 +66,7 @@ include("login/connection.php");
 
         <?php
         if (isset($_SESSION["idutente"])) {
-            $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione from post join utente on post.IDUtente = utente.ID join segue on utente.ID = segue.IDSeguito where pubblicato = 1 and segue.IDSeguace = 4 order by post.ID asc";
+            $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione, utente.img as imgutente from post join utente on post.IDUtente = utente.ID join segue on utente.ID = segue.IDSeguito where pubblicato = 1 and segue.IDSeguace = 4 order by post.ID asc";
             $result = mysqli_query($conn, $sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -74,7 +74,7 @@ include("login/connection.php");
                     "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
                 <div style='margin-left: 6px;margin-top:6px'>
                     <div class='card-title'>
-                    <img src='$row[imgpost]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
+                    <img src='$row[imgutente]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
                     <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
                 </div>
 
@@ -143,7 +143,7 @@ include("login/connection.php");
                             "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
                         <div style='margin-left: 6px;margin-top:6px'>
                             <div class='card-title'>
-                            <img src='$row[imgpost]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
+                            <img src='$row[imgutente]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
                             <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
                         </div>
         
