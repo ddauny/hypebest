@@ -15,7 +15,7 @@ include("login/connection.php");
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+    <script src="js/featurePost.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,11 +23,9 @@ include("login/connection.php");
     <!-- Custom styles for this template -->
     <link href="css/headers.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-
-
-
-
 </head>
+
+
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -110,40 +108,3 @@ include("login/connection.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<script>
-    function like(id) {
-        // window.location = "like.php?idpost=" + id;
-        $.ajax({
-            url: "like.php?idpost=" + id,
-            success: function() {
-                $("#like" + id).removeClass("fa-regular");
-                $("#like" + id).addClass("fa-solid");
-            }
-        });
-    }
-
-    function save(id) {
-        window.location = "save.php?idpost=" + id;
-        // $.ajax({
-        //         url: "save.php?idpost=" + id,
-        //         success: function(data) {
-        //             $("#save").removeClass("fa-thin");
-        //             $("#save").addClass("fa-solid");
-        //         }
-        //     });
-    }
-
-
-    //da capire cosa fare
-    function tag(id) {
-        window.location = "tag.php?idpost=" + id;
-        // $.ajax({
-        //         url: "tag.php?idpost=" + id,
-        //         success: function(data) {
-        //             $("#save").removeClass("fa-thin");
-        //             $("#save").addClass("fa-solid");
-        //         }
-        //     });
-    }
-</script>
