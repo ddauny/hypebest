@@ -4,7 +4,80 @@ include("login/connection.php");
 ?>
 
 <head>
+    <style>
+        /* Popup container - can be anything you want */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
+        /* The actual popup */
+        .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #DCDCDC;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #DCDCDC transparent transparent transparent;
+        }
+
+        /* Toggle this class - hide and show the popup */
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        function popup() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -84,7 +157,31 @@ include("login/connection.php");
                     <div style='float:right;'>
                         <button class='border-0 bg-transparent' onclick='like($row[idpost])'><i id='like$row[idpost]' class='fa-regular fa-heart fa-lg'></i></button>
                         <button class='border-0 bg-transparent' onclick='save($row[idpost])'><i id='save$row[idpost]' class='fa fa-regular fa-shoe-prints fa-lg'></i></button>
-                        <button class='border-0 bg-transparent' onclick='tag($row[idpost])'><i class='fa fa-regular fa-tag fa-lg'></i></button>
+                        <div class='popup' onclick='popup()'><i class='fa fa-regular fa-tag fa-lg'></i>
+                            <span class='popuptext' id='myPopup'>";
+
+                    $sqltag = "select link, tipo, nome from tag join presenta on tag.ID = presenta.IDTag where presenta.IDPost = $row[idpost]";
+                    $resulttag = mysqli_query($conn, $sqltag);
+                    if ($resulttag->num_rows > 0) {
+                        while ($rowtag = $resulttag->fetch_assoc()) {
+                            if ($rowtag["tipo"] == "profilo") { //se 0 è un tag utente
+                                // echo $rowtag["link"];
+                                $sqlutente = "select ID from utente where username = '$rowtag[link]'";
+                                $resultutente = mysqli_query($conn, $sqlutente);
+                                if ($resultutente->num_rows > 0) {
+                                    $rowutente = $resultutente->fetch_assoc();
+                                    $utentetaggato = $rowutente["ID"];
+                                }
+                                echo "<a class='disabledU' style='font-weight:bold'  href='profilo.php?idutente=$utentetaggato'>$rowtag[link]</a>";
+                            } else { //sto taggando un articolo
+                                echo "<a  class='disabledU' style='font-weight:bold'  href='$rowtag[link]'>$rowtag[nome]</a>";
+                            }
+                            echo "<br>";
+                        }
+                    }
+                    echo "</span>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -129,10 +226,34 @@ include("login/connection.php");
                             <div style='float:right;'>
                                 <button class='border-0 bg-transparent' onclick='like($row[idpost])'><i id='like$row[idpost]' class='fa-regular fa-heart fa-lg'></i></button>
                                 <button class='border-0 bg-transparent' onclick='save($row[idpost])'><i id='save$row[idpost]' class='fa fa-regular fa-shoe-prints fa-lg'></i></button>
-                                <button class='border-0 bg-transparent' onclick='tag($row[idpost])'><i class='fa fa-regular fa-tag fa-lg'></i></button>
-                            </div>
+                                <div class='popup' onclick='popup()'><i class='fa fa-regular fa-tag fa-lg'></i>
+                            <span class='popuptext' id='myPopup'>";
+
+                            $sqltag = "select link, tipo, nome from tag join presenta on tag.ID = presenta.IDTag where presenta.IDPost = $row[idpost]";
+                            $resulttag = mysqli_query($conn, $sqltag);
+                            if ($resulttag->num_rows > 0) {
+                                while ($rowtag = $resulttag->fetch_assoc()) {
+                                    if ($rowtag["tipo"] == "profilo") { //se 0 è un tag utente
+                                        // echo $rowtag["link"];
+                                        $sqlutente = "select ID from utente where username = '$rowtag[link]'";
+                                        $resultutente = mysqli_query($conn, $sqlutente);
+                                        if ($resultutente->num_rows > 0) {
+                                            $rowutente = $resultutente->fetch_assoc();
+                                            $utentetaggato = $rowutente["ID"];
+                                        }
+                                        echo "<a class='disabledU' style='font-weight:bold'  href='profilo.php?idutente=$utentetaggato'>$rowtag[link]</a>";
+                                    } else { //sto taggando un articolo
+                                        echo "<a  class='disabledU' style='font-weight:bold'  href='$rowtag[link]'>$rowtag[nome]</a>";
+                                    }
+                                    echo "<br>";
+                                }
+                            }
+                            echo "</span>
                         </div>
-        
+                        
+                    </div>
+                </div>
+
                         <div class='card-body'>
                             <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                         ";
@@ -158,4 +279,5 @@ include("login/connection.php");
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
