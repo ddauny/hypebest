@@ -31,18 +31,20 @@ include("login/connection.php");
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <!-- <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
                     <use xlink:href="#bootstrap" />
                 </svg>
-            </a>
+            </a> -->
 
-                <h3><a class="disabled" href="index.php">HypeBest</a></h3>
+            <a class="disabled" href="index.php"><img src="img/icon.png" alt="" width="35px"  class="d-inline-block align-text-top" /></a>
+            <h3><a class="disabled" href="index.php">HypeBest</a></h3>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center ">
-                <li><a href="index.php" class="nav-link px-2 text-secondary"><i style='color:white' class="fa-solid fa-house fa-lg"></i></i></a></li>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center" style="margin-left:12%">
+                <li><a href="index.php" class="nav-link px-2 text-white"><i class="fa-solid fa-house fa-lg"></i></i></a></li>
                 <li><a href="AddPost.html" class="nav-link px-2 text-white"><i class=" fa fa-regular fa-plus fa-lg"></i></a></li>
-                <li><a href="" class="nav-link px-2 text-white"><i class="fa fa-regular fa-magnifying-glass fa-lg"></i></a></li>
+                <li><a href="search.php" class="nav-link px-2 text-white"><i class="fa fa-regular fa-magnifying-glass fa-lg"></i></a></li>
                 <!-- <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">About</a></li> -->
             </ul>
@@ -71,8 +73,10 @@ include("login/connection.php");
             while ($row = $result->fetch_assoc()) {
                 echo
                 "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
-                <div class='card-body'>
-                    <div class='card-title'><a class='disabledU' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
+                <div style='margin: 6px;'>
+                    <div class='card-title'>
+                    <img src='$row[imgpost]' class='card-img-top' style='width:50px;height:50px; border-radius:80%'>
+                    <a class='disabledU' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
                 </div>
 
                 <div><img src='$row[imgpost]' class='card-img-top' ></div>  
@@ -80,8 +84,8 @@ include("login/connection.php");
                 <div style='position:relative;margin-top:5px; margin-right:5px' >
                     <div style='float:right;'>
                         <button class='border-0 bg-transparent' onclick='like($row[idpost])'><i id='like$row[idpost]' class='fa-regular fa-heart fa-lg'></i></button>
-                        <button class='border-0 bg-transparent' onclick='save($row[idpost])'><i id='save$row[idpost]' class='fa-brands fa-amazon fa-lg'></i></button>
-                        <button class='border-0 bg-transparent' onclick='tag($row[idpost])'><i class='fa-regular fa-bookmark fa-lg'></i></button>
+                        <button class='border-0 bg-transparent' onclick='save($row[idpost])'><i id='save$row[idpost]' class='fa fa-regular fa-shoe-prints fa-lg'></i></button>
+                        <button class='border-0 bg-transparent' onclick='tag($row[idpost])'><i class='fa fa-regular fa-tag fa-lg'></i></button>
                     </div>
                 </div>
 
