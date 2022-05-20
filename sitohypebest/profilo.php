@@ -51,7 +51,7 @@ if (isset($_SESSION["idutente"])) {
             echo "<button onclick='follow($idutente)'>SEGUI</button>";
         }
     } else {
-        echo "<button onclick='edit($idutente)'>MODIFICA</button>";
+        echo "<button onclick='edit($idutente)'>MODIFICA</button><button onclick='logout()'>ESCI</button>";
     }
     echo  "</div></div></div>";
 
@@ -78,5 +78,9 @@ if (isset($_SESSION["idutente"])) {
 
     function edit(id) {
         window.location = "edit.php";
+    }
+
+    function logout(){
+        window.location = "login/logout.php";
     }
 </script>
