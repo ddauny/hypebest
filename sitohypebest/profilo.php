@@ -134,11 +134,11 @@ include("login/connection.php");
         if ($resultpost->num_rows > 0) { //se ho almeno un post
             echo "<div class='d-flex flex-row justify-content-center'>";
             $contatore=0;
-            echo "<div class=' d-flex flex-row row' style='max-width:1020px;'>";
+            echo "<div class=' d-flex flex-row ' style='max-width:1020px;'>";
             while ($post = $resultpost->fetch_assoc()) {
-                echo "<div class='col-lg-4 my-2'>
+                echo "<div class='col-lg-4 col-md-4 my-2'>
                     <a href='post.php?idpost=$post[ID]'>
-                        <img class='square img-top  'src='$post[img]'>
+                        <img class='square img-fluid'src='$post[img]'>
                     </a>
                 </div>";
                 $contatore++;
