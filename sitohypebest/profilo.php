@@ -95,7 +95,7 @@ include("login/connection.php");
         $rfollower = $resultnfollower->fetch_assoc();
         $nfollower = $rfollower["count(*)"]; //nlike è il numero di like totali dell'utente
 
-        $sqlnsave = "select count(*) from likes where IDUtente = $idutente";
+        $sqlnsave = "select count(*) from salva join post on IDPost = post.ID join utente on post.IDUtente = utente.ID where utente.ID = $idutente";
         $resultnsave = mysqli_query($conn, $sqlnsave);
         $rsave = $resultnsave->fetch_assoc();
         $nsave = $rsave["count(*)"]; //nsave è il numero di salvataggi dei post dell'utente
