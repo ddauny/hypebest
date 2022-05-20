@@ -51,6 +51,24 @@ include("login/connection.php");
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                 <input type="search" class="form-control form-control-dark text-white bg-white" name="q" placeholder="Cerca..." aria-label="Search">
             </form>
+            <!-- <div class="container">
+                <input class="col-12 col-lg-2 mb-3 mb-lg-0 me-lg-3 form-control form-control-dark text-white bg-white" id="myInput" type="text" placeholder="Search..">
+                <br>
+                <?php
+                // echo '<ul class="list-group" id="myList">';
+                // //session_start();
+                // //include("login/connection.php");
+                // $sql = "select * from utente";
+                // $result = mysqli_query($conn, $sql);
+                // if ($result->num_rows > 0) {
+                //     while ($row = $result->fetch_assoc()) {
+                //         echo "<li class='list-group-item'><a href='profilo.php?idutente=$row[ID]'>$row[username]</a></li>";
+                //     }
+                // }
+                // echo "</ul>";
+                ?>
+
+            </div> -->
 
             <div class="text-end">
                 <button type="button" style="border:0px solid white" class="btn btn-outline-light me-2"><a class="disabled" href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
@@ -77,9 +95,7 @@ include("login/connection.php");
                     <img src='$row[imgutente]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
                     <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
                 </div>
-
                 <div><img src='$row[imgpost]' class='card-img-top' ></div>  
-
                 <div style='position:relative;margin-top:5px; margin-right:5px' >
                     <div style='float:right;'>
                         <button class='border-0 bg-transparent' onclick='like($row[idpost])'><i id='like$row[idpost]' class='fa-regular fa-heart fa-lg'></i></button>
@@ -111,7 +127,6 @@ include("login/connection.php");
                         
                     </div>
                 </div>
-
                 <div class='card-body'>
                     <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                 ";
@@ -180,7 +195,6 @@ include("login/connection.php");
                         
                     </div>
                 </div>
-
                         <div class='card-body'>
                             <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                         ";
