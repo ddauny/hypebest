@@ -32,8 +32,13 @@ if (isset($_SESSION["idutente"])) {
                 <div style='margin-left: 6px;margin-top:6px'>
                     <div class='card-title'>
                     <img src='$row[imgpost]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
-                    <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
-                </div>
+                    <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a>";
+                    
+                    if($_SESSION["idutente"] == $row["idutente"]){
+                        echo "<a class='disabledU' href='post/delete.php?idpost=$row[idpost]' style='position:absolute;right:10px;top:26px'><i class='fa-solid fa-xmark fa-2xl'></i></a>";
+                    }
+                    
+                  echo   "</div>
 
                 <div><img src='$row[imgpost]' class='card-img-top' ></div>  
 

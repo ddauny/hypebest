@@ -4,7 +4,6 @@
 
 <head>
     <title>HypeBest - Aggiungi Post</title>
-    <link rel="stylesheet" href="../css/styleLogin.css" type="text/css">
     <link rel="stylesheet" href="css/styleAddPost.css" type="text/css">
 </head>
 
@@ -12,21 +11,21 @@
 <body>
     <form action="chkAddPost.php" enctype="multipart/form-data" method="post">
         <div class="container">
-           
-            <label for="descrizione">Descrizione</label>
+
+            <label for="descrizione"><b>Descrizione<b></label>
             <input type="text" placeholder="Descrizione" id="descrizione" name="descrizione" required>
 
-            <label for="sesso">Sesso</label><br>
+            <label for="sesso"><b>Sesso<b></label><br>
             <select id="sesso" name="sesso" required>
                 <option value=0>Maschio</option>
                 <option value=1>Femmina</option>
                 <option value=2>Preferisco non specificare</option>
             </select>
 
-            <br><label for="img">Immagine</label>
+            <br><label for="img"><b>Immagine<b></label>
             <input name="img" id="img" type="file" required />
 
-            <br><label for="interesse">Situazione</label><br>
+            <br><label for="interesse"><b>Situazione<b></label><br>
             <?php
             session_start();
             include("login/connection.php");
@@ -41,7 +40,13 @@
             }
             ?>
 
-            <br><input type="submit" value="Aggiungi Post">
+            <label for="tag"><b>Tag<b></label>
+            <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
+            <label for="nometag"><b>Nome Tag<b></label>
+            <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag">
+            <button onclick='addTag()'></button>
+            <br><button onclick="submit()"><b>Aggiungi Post</b></button><br>
+
         </div>
     </form>
 </body>
