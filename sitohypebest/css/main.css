@@ -24,6 +24,7 @@ a.disabled:link {
 
 .square {
   object-fit: cover;
-  width:293px;
-  height:293px;
+  width: 293px;;
+  height: 293px;;
+
 }
