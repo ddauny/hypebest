@@ -126,6 +126,7 @@ include("login/connection.php");
         <div class=''>$npost post</div>
         <div class=''>$nsave salvataggi</div>
  </div>
+ <hr>
 
 ";
 
