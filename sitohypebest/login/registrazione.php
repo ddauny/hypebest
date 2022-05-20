@@ -5,8 +5,7 @@
     <title>HypeBest - Registrazione</title>
 
     <link rel="stylesheet" href="../css/styleRegistrazione.css" type="text/css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script>
         function submit() {
             $('#form').submit();
@@ -46,6 +45,21 @@
                         <option value=1>Femmina</option>
                         <option value=2>Preferisco non specificare</option>
                     </select><br><br>
+
+                    <label for="interesse"><b>Interesse</b></label>
+                    <?php
+                    session_start();
+                    include("connection.php");
+                    $sql = "select * from interesse";
+                    $result = mysqli_query($conn, $sql);
+                    if ($result->num_rows > 0) {
+                        echo "<select name='interesse' id='interesse'>";
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[ID]>$row[interesse]</option>";
+                        }
+                        echo "</select><br>";
+                    }
+                    ?>
 
                     <label for="img"><b>Immagine profilo</b></label>
                     <input name="img" id="img" type="file" required />
