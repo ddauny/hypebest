@@ -5,8 +5,7 @@
     <title>HypeBest - Registrazione</title>
 
     <link rel="stylesheet" href="../css/styleRegistrazione.css" type="text/css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script>
         function submit() {
             $('#form').submit();
@@ -40,12 +39,35 @@
                     <label for="data"><b>Data di nascita</b></label>
                     <input type="date" id="data" name="data" value="2000-01-01" min="1920-01-01" required>
                     <br><br>
-                    <label for="sesso"><b>Sesso</b></label>
+
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected>Sesso</option>
+                        <option value="0">Maschio</option>
+                        <option value="1">Femmina</option>
+                        <option value="2">Preferisco non specificare</option>
+                    </select>
+
+                    <!-- <label for="sesso"><b>Sesso</b></label>
                     <select id="sesso" name="sesso" required>
                         <option value=0>Maschio</option>
                         <option value=1>Femmina</option>
                         <option value=2>Preferisco non specificare</option>
-                    </select><br><br>
+                    </select><br><br> -->
+
+                    <label for="interesse"><b>Interesse</b></label>
+                    <?php
+                    session_start();
+                    include("connection.php");
+                    $sql = "select * from interesse";
+                    $result = mysqli_query($conn, $sql);
+                    if ($result->num_rows > 0) {
+                        echo "<select name='interesse' id='interesse'>";
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[ID]>$row[interesse]</option>";
+                        }
+                        echo "</select><br>";
+                    }
+                    ?>
 
                     <label for="img"><b>Immagine profilo</b></label>
                     <input name="img" id="img" type="file" required />
