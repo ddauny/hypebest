@@ -20,6 +20,7 @@
         <div class="">
             <form id="form" action="chkRegistrazione.php" enctype="multipart/form-data" method="post">
                 <div class="container">
+
                     <label for="nome"><b>Nome</b></label>
                     <input type="text" placeholder="Nome" id="nome" name="nome" required>
 
@@ -38,23 +39,15 @@
 
                     <label for="data"><b>Data di nascita</b></label>
                     <input type="date" id="data" name="data" value="2000-01-01" min="1920-01-01" required>
-                    <br><br>
 
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>Sesso</option>
-                        <option value="0">Maschio</option>
-                        <option value="1">Femmina</option>
-                        <option value="2">Preferisco non specificare</option>
-                    </select>
-
-                    <!-- <label for="sesso"><b>Sesso</b></label>
+                    <label for="sesso"><b>Sesso</b></label>
                     <select id="sesso" name="sesso" required>
                         <option value=0>Maschio</option>
                         <option value=1>Femmina</option>
                         <option value=2>Preferisco non specificare</option>
-                    </select><br><br> -->
+                    </select>
 
-                    <label for="interesse"><b>Interesse</b></label>
+                    <label for="interesse"><b>Interesse</b></label><br>
                     <?php
                     session_start();
                     include("connection.php");
@@ -69,17 +62,15 @@
                     }
                     ?>
 
-                    <label for="img"><b>Immagine profilo</b></label>
-                    <input name="img" id="img" type="file" required />
-
                     <label for="bio"><b>Biografia</b></label>
                     <input type="text" id="bio" name="bio" requirad>
 
-                    <div class="container" style="background-color:white">
-                        <button type="reset" value="Cancella" class="cancelbtn"><b>Cancella Tutto</b></button>
-                        <br>
-                        <br><button onclick="submit()"><b>Registrati</b></button>
-                    </div>
+                    <label for="img"><b>Immagine profilo</b></label>
+                    <input name="img" id="img" type="file" required/><br>
+
+                    <br><button onclick="submit()"><b>Registrati</b></button><br>
+                    <br><button type="reset" value="Cancella" class="cancelbtn"><b>Cancella Tutto</b></button>
+
                 </div>
             </form>
         </div>
