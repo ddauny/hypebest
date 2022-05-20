@@ -17,3 +17,13 @@ a.disabled:link {
     color: black;
     text-decoration: none;
   }
+
+.borderino{
+  border:2px solid rgb(67, 60, 54);
+}
+
+.square {
+  object-fit: cover;
+  width:293px;
+  height:293px;
+}
