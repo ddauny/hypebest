@@ -1,40 +1,33 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
-
-
 form {
     border: 3px solid #f1f1f1;
 }
 
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
+input[type=text],
+input[type=password] {
+    width     : 100%;
+    padding   : 12px 20px;
+    margin    : 8px 0;
+    display   : inline-block;
+    border    : 1px solid #ccc;
     box-sizing: border-box;
 }
 
 button {
     background-color: rgb(236, 42, 42);
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: solid black 1px;
-    cursor: pointer;
-    width: 100%;
-    
+    color           : black;
+    padding         : 14px 20px;
+    margin          : 8px 0;
+    border          : solid black 1px;
+    cursor          : pointer;
+    width           : 100%;
+
 }
 
 button:hover {
     opacity: 0.8;
-}
-
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: rgb(236, 42, 42);
 }
 
 .container {
@@ -42,21 +35,93 @@ button:hover {
 }
 
 span.password {
-    float: right;
+    float      : right;
     padding-top: 16px;
 }
 
 span.reg {
-    float: right;
+    float      : right;
     padding-top: 16px;
 }
 
 @media screen and (max-width: 300px) {
     span.password {
         display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
+        float  : none;
     }
 }
+
+
+.black-red {
+    /* background-color: black;
+    color:red; */
+}
+
+.round {
+    border-radius: 6.25em;
+}
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: $white;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $white;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+
+

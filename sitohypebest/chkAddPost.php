@@ -2,25 +2,65 @@
 session_start();
 include("login/connection.php");
 
-$situazione = $_POST["situazione"];
+$situazione = $_POST["interesse"];
 $descrizione = $_POST["descrizione"];
 $sesso = $_POST["sesso"];
-//$immagine = $_POST["img"];
 
 
-$uploaddir = 'img/';     
-$uploadfile = $uploaddir . basename($_FILES['img']['name']);   
-move_uploaded_file( $_FILES['img']['tmp_name'],$uploadfile);
+
+
+
+
+
+
+
+$uploaddir = 'img/';
+$uploadfile = $uploaddir . basename($_FILES['img']['name']);
+move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile);
 
 
 $sql = $conn->prepare("INSERT INTO post (IDUtente, situazione, descrizione, sesso, img) VALUES (?, ?, ?, ?, ?)");
 $sql->bind_param("issis", $_SESSION["idutente"], $situazione, $descrizione, $sesso, $uploadfile);
 
+
 if ($sql->execute() === TRUE) {
-    header("location:index.php");
+    $nametags = $_POST['nometag'];
+    $tags = $_POST['tag'];
+ //   echo $nametags;
+    if (isset($nametags)) {
+        $arraytag = array(); //array dei tag
+        foreach ($tags as $tag) {
+            array_push($arraytag, $tag);
+        }
+        if (count($arraytag) > 0) {
+            $sql = "select max(ID) from post";
+            $result = mysqli_query($conn, $sql);
+            $row = $result->fetch_assoc();
+            $lastidpost = $row["max(ID)"];
+            $arraynome = array();
+            foreach ($nametags as $nametag) {
+                array_push($arraynome, $nametag);
+            }
+            for ($i = 0; $i < count($arraytag); $i++) {
+                $sql = $conn->prepare("INSERT INTO tag (link, tipo, nome) VALUES (?, ?, ?)");
+                $tipo = "articolo";
+                if (substr($arraytag[$i], 0) == "@") {
+                    $tipo = "profilo";
+                }
+                
+                $sql->bind_param("sss", $arraytag[$i], $tipo, $arraynome[$i]);
+                $sql->execute();
+                $lastidtag = $sql->insert_id;
+                $sql = $conn->prepare("INSERT INTO presenta (IDPost, IDTag) VALUES (?, ?)");
+                echo $lastidpost, $lastidtag;
+                $sql->bind_param("ii", $lastidpost, $lastidtag);
+                $sql->execute();
+            }
+        }
+    }
+    header("location:profilo.php");
 } else {
     header("location:AddPost.html");
 }
 $sql->close();
 $conn->close();
-?>

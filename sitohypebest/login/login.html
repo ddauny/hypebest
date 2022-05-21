@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../css/styleLogin.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="../css/main.css" rel="stylesheet">
+
     <script>
         function submit() {
             $('#form').submit();
@@ -17,23 +20,28 @@
 </head>
 
 
-<body>
+<body class="black-red">
     <br>
-    <div class="container-fluid">
+    <div class="container center-div">
         <div class="">
             <form id="form" action="chkLogin.php" method="post">
                 <div class="container">
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Username" id="username" name="username" required>
+                    <div class="form__group field">
+                        <input type="text" placeholder="Username" class="round form__field" id="username" alt='Username' name="username" required>
+                        <!-- <label class="form__label "for="username"><b>Username</b></label> -->
 
-                    <label for="Password"><b>Password</b></label>
-                    <input type="password" placeholder="Password" id="password" name="password" required>
-                    <br>
-                    <br><button onclick="submit()"><b>Login</b></button>
+                    </div>
+
+                    <div class="form__group field">
+                        <input type="password" placeholder="Password" class="round form__field" id="password" name="password" required>
+                        <!-- <label class="form__label" for="Password"><b>Password</b></label> -->
+                    </div>
+                    <!-- <br> -->
+                    <br><button class="btn btn-danger btn-lg form__field" style="color:black"onclick="submit()"><b>Login</b></button>
                 </div>
                 <div class="container" style="background-color:white">
-                    <button type="reset" value="Cancella" class="cancelbtn"><b>Cancella Tutto</b></button>
-                    <span class="password"><a href="registrazione.php">Registrati<a></span>
+                    <button type="reset" value="Cancella" style="color:black" class="btn btn-danger btn-lg"><b>Cancella Tutto</b></button>
+                    <span class="password"><b>Non hai un account? <a href="registrazione.php">Registrati</a></b></span>
                 </div>
             </form>
         </div>
