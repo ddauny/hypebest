@@ -32,62 +32,12 @@ include("login/connection.php");
         }
     </style>
 </head>
-<nav class="navbar navbar-expand-lg p-3 text-white" style="background-color: #c82a1e;">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse">
-            <!-- <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-            </a> -->
-
-            <!-- <a class="disabled" href="index.php"><img src="img/icon.png" alt="" width="35px"  class="d-inline-block align-text-top" /></a> -->
-            <h3><a class="disabled" href="index.php">HypeBest</a></h3>
-
-            <div class="d-flex justify-content-between">
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center">
-                    <li><a href="index.php" class="nav-link px-2 text-white"><i class="fa-solid fa-house fa-lg"></i></i></a></li>
-                    <li><a href="AddPost.html" class="nav-link px-2 text-white"><i class=" fa fa-regular fa-plus fa-lg"></i></a></li>
-                    <li><a href="search.php" class="nav-link px-2 text-white"><i class="fa fa-regular fa-magnifying-glass fa-lg"></i></a></li>
-                    <!-- <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">About</a></li> -->
-                </ul>
-            </div>
-
-
-            <!-- <h3>HypeBest</h3> -->
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control form-control-dark text-white bg-white" name="q" placeholder="Cerca..." aria-label="Search">
-            </form>
-            <!-- <div class="container">
-                <input class="col-12 col-lg-2 mb-3 mb-lg-0 me-lg-3 form-control form-control-dark text-white bg-white" id="myInput" type="text" placeholder="Search..">
-                <br>
-                <?php
-                // echo '<ul class="list-group" id="myList">';
-                // //session_start();
-                // //include("login/connection.php");
-                // $sql = "select * from utente";
-                // $result = mysqli_query($conn, $sql);
-                // if ($result->num_rows > 0) {
-                //     while ($row = $result->fetch_assoc()) {
-                //         echo "<li class='list-group-item'><a href='profilo.php?idutente=$row[ID]'>$row[username]</a></li>";
-                //     }
-                // }
-                // echo "</ul>";
-                ?>
-
-            </div> -->
-
-            <div class="text-end">
-                <button type="button" style="border:0px solid white" class="btn btn-outline-light me-2"><a class="disabled" href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
-                <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
-                <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
-            </div>
-        </div>
-    </div>
-</nav>
 
 <body>
+    <?php
+    include("navBar.php");
+    ?>
+
     <div class="container">
 
         <?php
