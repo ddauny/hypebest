@@ -43,7 +43,7 @@ include("login/connection.php");
 
         <?php
         if (isset($_SESSION["idutente"])) {
-            $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione, utente.img as imgutente from post join utente on post.IDUtente = utente.ID join segue on utente.ID = segue.IDSeguito where pubblicato = 1 and segue.IDSeguace = 4 order by post.ID asc";
+            $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione, utente.img as imgutente from post join utente on post.IDUtente = utente.ID join segue on utente.ID = segue.IDSeguito where pubblicato = 1 and segue.IDSeguace = $_SESSION[idutente] order by post.ID asc";
             $result = mysqli_query($conn, $sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -77,8 +77,8 @@ include("login/connection.php");
                     <div style='float:right;'>
                         <button style='position:absloute; left:2px'class='border-0 bg-transparent' onclick='like($row[idpost],$liked)'><i id='like$row[idpost]' class='$classlike fa-heart fa-lg'></i></button></>
                         <button class='border-0 bg-transparent' onclick='save($row[idpost],$saved)'><i id='save$row[idpost]' class='fa $classsave fa-shirt fa-lg'></i></button>
-                        <div class='popup' onclick='popup()'><i style='margin-left:4px' class='fa fa-regular fa-tag fa-lg'></i>
-                            <span class='popuptext' id='myPopup'>";
+                        <div class='popup' onclick='popup($row[idpost])'><i style='margin-left:4px' class='fa fa-regular fa-tag fa-lg'></i>
+                            <span class='popuptext' id='myPopup$row[idpost]'>";
 
                     $sqltag = "select link, tipo, nome from tag join presenta on tag.ID = presenta.IDTag where presenta.IDPost = $row[idpost]";
                     $resulttag = mysqli_query($conn, $sqltag);

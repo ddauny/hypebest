@@ -76,9 +76,9 @@
                     <label for="nometag"><b>Nome Tag<b></label>
                     <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag"> -->
                     
-                    <button onclick='addTag()'><b>Tag</b></button>
+                    <!-- <button onclick='addTag()'><b>Tag</b></button> -->
 
-                    <br><button onclick="submit()"><b>Aggiungi Post</b></button><br>
+                    <br><button type='submit' onclick="submit()"><b>Aggiungi Post</b></button><br>
 
                 </div>
 

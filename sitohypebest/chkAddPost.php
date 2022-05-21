@@ -7,23 +7,10 @@ $descrizione = $_POST["descrizione"];
 $sesso = $_POST["sesso"];
 
 
-$sql = $conn->prepare("INSERT INTO tag (link, tipo, nome) VALUES (?, ?, ?, ?, ?)");
-$sql->bind_param("sis", $tag, $situazione, $descrizione, $sesso, $uploadfile);
 
 
 
-$tags = $_POST['tag'];
-$nametags = $_POST['nametag'];
-$atags = array();
-$ntags = array();
-foreach ($tags as $tag) {
-    array_push($atags, $tag);
-}
-foreach ($nametags as $nametag) {
-    array_push($ntags, $nametag);
-}
-for ($i = 0; $i < count($atags); $i++) {
-}
+
 
 
 
@@ -37,8 +24,41 @@ $sql->bind_param("issis", $_SESSION["idutente"], $situazione, $descrizione, $ses
 
 
 if ($sql->execute() === TRUE) {
-
-    header("location:index.php");
+    $nametags = $_POST['nometag'];
+    $tags = $_POST['tag'];
+ //   echo $nametags;
+    if (isset($nametags)) {
+        $arraytag = array(); //array dei tag
+        foreach ($tags as $tag) {
+            array_push($arraytag, $tag);
+        }
+        if (count($arraytag) > 0) {
+            $sql = "select max(ID) from post";
+            $result = mysqli_query($conn, $sql);
+            $row = $result->fetch_assoc();
+            $lastidpost = $row["max(ID)"];
+            $arraynome = array();
+            foreach ($nametags as $nametag) {
+                array_push($arraynome, $nametag);
+            }
+            for ($i = 0; $i < count($arraytag); $i++) {
+                $sql = $conn->prepare("INSERT INTO tag (link, tipo, nome) VALUES (?, ?, ?)");
+                $tipo = "articolo";
+                if (substr($arraytag[$i], 0) == "@") {
+                    $tipo = "profilo";
+                }
+                
+                $sql->bind_param("sss", $arraytag[$i], $tipo, $arraynome[$i]);
+                $sql->execute();
+                $lastidtag = $sql->insert_id;
+                $sql = $conn->prepare("INSERT INTO presenta (IDPost, IDTag) VALUES (?, ?)");
+                echo $lastidpost, $lastidtag;
+                $sql->bind_param("ii", $lastidpost, $lastidtag);
+                $sql->execute();
+            }
+        }
+    }
+    header("location:profilo.php");
 } else {
     header("location:AddPost.html");
 }
