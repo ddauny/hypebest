@@ -44,11 +44,10 @@ if ($sql->execute() === TRUE) {
             for ($i = 0; $i < count($arraytag); $i++) {
                 $sql = $conn->prepare("INSERT INTO tag (link, tipo, nome) VALUES (?, ?, ?)");
                 $tipo = "articolo";
-                if (substr($arraytag[$i], 0) == "@") {
+                if (substr($arraytag[$i], 0, 1) == "@") {
                     $tipo = "profilo";
                 }
-                
-                $sql->bind_param("sss", $arraytag[$i], $tipo, $arraynome[$i]);
+                $sql->bind_param("sss", substr($arraytag[$i],1,strlen($arraytag[$i]) - 1), $tipo, $arraynome[$i]);
                 $sql->execute();
                 $lastidtag = $sql->insert_id;
                 $sql = $conn->prepare("INSERT INTO presenta (IDPost, IDTag) VALUES (?, ?)");

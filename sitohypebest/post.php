@@ -72,14 +72,18 @@ if (isset($_SESSION["idutente"])) {
                 while ($rowtag = $resulttag->fetch_assoc()) {
                     if ($rowtag["tipo"] == "profilo") { //se 0 è un tag utente
                         // echo $rowtag["link"];
+                        
                         $sqlutente = "select ID from utente where username = '$rowtag[link]'";
                         $resultutente = mysqli_query($conn, $sqlutente);
                         if ($resultutente->num_rows > 0) {
                             $rowutente = $resultutente->fetch_assoc();
                             $utentetaggato = $rowutente["ID"];
+                            
                         }
                         echo "<a class='disabledU' style='font-weight:bold'  href='profilo.php?idutente=$utentetaggato'>$rowtag[link]</a>";
                     } else { //sto taggando un articolo
+                       // echo "sdajkdcbkjas";
+                       echo $rowtag["tipo"];
                         echo "<a  class='disabledU' style='font-weight:bold'  target='_blanck'href='$rowtag[link]'>$rowtag[nome]</a>";
                     }
                     echo "<br>";
