@@ -16,6 +16,7 @@
 
 <body>
     <br>
+
     <div class="container-fluid">
         <div class="">
             <form id="form" action="chkRegistrazione.php" enctype="multipart/form-data" method="post">
