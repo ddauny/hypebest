@@ -34,5 +34,7 @@ if (!isset($_SESSION["idutente"])) {
             header("location:registrazione.php");
         }
     }
+} else {
+    header("location:../home.php");
 }
 ?>

@@ -35,6 +35,9 @@ session_start();
 include("login/connection.php");
 if (isset($_SESSION["idutente"])) {
     $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione, utente.img as imgutente from post join utente on post.IDUtente = utente.ID join salva on salva.IDPost = post.ID where 4 = salva.IDUtente and pubblicato = 1 order by salva.ID asc";
+    
+    
+    
     $result = mysqli_query($conn, $sql);
     
     if ($result->num_rows > 0) {

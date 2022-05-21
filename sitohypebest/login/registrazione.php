@@ -63,16 +63,17 @@
                     ?>
 
                     <label for="bio"><b>Biografia</b></label>
-                    <input type="text" id="bio" name="bio" requirad>
+                    <input type="text" id="bio" name="bio" required>
 
                     <label for="img"><b>Immagine profilo</b></label>
                     <input name="img" id="img" type="file" required/><br>
 
-                    <br><button onclick="submit()"><b>Registrati</b></button><br>
+                    <br><button type="submit" onclick="submit()"><b>Registrati</b></button><br>
                     <br><button type="reset" value="Cancella" class="cancelbtn"><b>Cancella Tutto</b></button>
-
+                    <br><br><span class="password"><b>Hai già un account? <a href="login.html">Accedi<a></b></span>
                 </div>
             </form>
+            
         </div>
     </div>
 </body>
