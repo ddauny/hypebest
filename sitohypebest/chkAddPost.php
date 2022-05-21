@@ -2,7 +2,7 @@
 session_start();
 include("login/connection.php");
 
-$situazione = $_POST["situazione"];
+$situazione = $_POST["interesse"];
 $descrizione = $_POST["descrizione"];
 $sesso = $_POST["sesso"];
 
