@@ -117,7 +117,7 @@ include("login/connection.php");
                     // INIZIA LA PARTE PER COMMENTAREEE
                     echo "
                     <div style='margin-top:8px'>
-                    <form class='' role='search' action='comments.php'>
+                    <form class='' role='search' action='post/comments.php'>
                         <input type='search' class='buttonCommento' name='commentino'placeholder='Aggiungi un commento...' />
                         <input type='submit' class='buttonPubblica' value='Pubblica'/>
                     </form>
@@ -189,13 +189,6 @@ include("login/connection.php");
                                 }
                             }
                             echo "</span>
-<<<<<<< HEAD
-
-=======
-                                </div>
-                                
-                            </div>
->>>>>>> 6084f74099cb30efd0db0bcbd7b3ca4e54a65cba
                         </div>
                         <div class='card-body'>
                             <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
@@ -208,10 +201,6 @@ include("login/connection.php");
                                     echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label for='$row[username]'>$row[testo]</label> <label>$row[data]</label></div>";
                                 }
                             }
-<<<<<<< HEAD
-=======
-        
->>>>>>> 6084f74099cb30efd0db0bcbd7b3ca4e54a65cba
                             echo "</div></div>";
                         }
                     }
