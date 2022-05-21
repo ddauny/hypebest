@@ -47,6 +47,7 @@ include("login/connection.php");
             $result = mysqli_query($conn, $sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    $idpost = $row["idpost"];
                     echo "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
                 <div style='margin-left: 6px;margin-top:6px'>
                     <div class='card-title'>
@@ -117,8 +118,8 @@ include("login/connection.php");
                     // INIZIA LA PARTE PER COMMENTAREEE
                     echo "
                     <div style='margin-top:8px'>
-                    <form class='' role='search' action='post/comments.php'>
-                        <input type='search' class='buttonCommento' name='commentino'placeholder='Aggiungi un commento...' />
+                    <form class='' role='search' action='post/comments.php?idpost=$idpost' method='post'>
+                        <input type='search' class='buttonCommento' name='commento' placeholder='Aggiungi un commento...' />
                         <input type='submit' class='buttonPubblica' value='Pubblica'/>
                     </form>
                     </div>";
@@ -189,6 +190,9 @@ include("login/connection.php");
                                 }
                             }
                             echo "</span>
+                                </div>
+                                
+                            </div>
                         </div>
                         <div class='card-body'>
                             <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
@@ -201,6 +205,7 @@ include("login/connection.php");
                                     echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label for='$row[username]'>$row[testo]</label> <label>$row[data]</label></div>";
                                 }
                             }
+        
                             echo "</div></div>";
                         }
                     }
