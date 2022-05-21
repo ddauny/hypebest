@@ -1,56 +1,148 @@
 a.disabled:visited {
-    color: white;
-    text-decoration: none;
+  color          : white;
+  text-decoration: none;
 }
 
 a.disabled:link {
-    color: white;
-    text-decoration: none;
-  }
+  color          : white;
+  text-decoration: none;
+}
 
 .disabledU:visited {
-    color: black;
-    text-decoration: none;
+  color          : black;
+  text-decoration: none;
 }
 
 .disabledU:link {
-    color: black;
-    text-decoration: none;
-  }
+  color          : black;
+  text-decoration: none;
+}
 
-.borderino{
-  border:2px solid rgb(67, 60, 54);
+.borderino {
+  border: 2px solid rgb(67, 60, 54);
 }
 
 .square {
   object-fit: cover;
-  width: 293px;;
-  height: 293px;;
+  width     : 293px;
+  ;
+  height: 293px;
+  ;
 
 }
 
-a.hover:hover{
+a.hover:hover {
   color: black;
 }
 
-.center-div{
-  position: absolute;
-  top: 50%; right: 50%;
-  transform: translate(50%,-50%);
+.center-div {
+  position : absolute;
+  top      : 50%;
+  right    : 50%;
+  transform: translate(50%, -50%);
 }
 
-.buttonCommento{
-  width:85%;
-  float: left;
-  border:none;
+.buttonCommento {
+  width : 85%;
+  float : left;
+  border: none;
 }
-.buttonCommento:focus{
+
+.buttonCommento:focus {
   outline: none;
 }
-.buttonPubblica{
-  float: right;
-  border:none;
+
+.buttonPubblica {
+  float           : right;
+  border          : none;
   background-color: transparent;
-  color: red;
-  font-weight: bold;
+  color           : red;
+  font-weight     : bold;
 }
+
+.commentiDiv {
+  overflow     : auto;
+  /* overflow-y: hidden; */
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.commentiDiv::-webkit-scrollbar {
+  display   : none;
+  max-height: 85px;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.commentiDiv {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width   : none;
+  /* Firefox */
+  max-height        : 85px;
+
+}
+
+/* .postino {
+  max-width    : 45%;
+  min-width    : 100%;
+  margin-left  : auto;
+  margin-right : auto;
+  margin-bottom: 10px;
+  margin-top   : 20px
+} */
+
+@media only screen and (max-width: 576px){
+  .disableTesto{
+    display: none;
+  };
+}
+@media only screen and (max-width: 3000px){
+  .postino{
+    max-width    : 65%;
+    /* min-width    : 100%; */
+    margin-left  : auto;
+    margin-right : auto;
+    margin-bottom: 10px;
+    margin-top   : 20px;
+  }
+}
+
+@media only screen and (max-width: 3000px){
+  .postino{
+    max-width    : 57%;
+    /* min-width    : 100%; */
+    margin-left  : auto;
+    margin-right : auto;
+    margin-bottom: 10px;
+    margin-top   : 20px;
+  }
+}
+
+@media only screen  and (max-width: 1300px){
+  .postino{
+    /* max-width    : 45%; */
+    min-width    : 100%;
+    margin-left  : auto;
+    margin-right : auto;
+    margin-bottom: 10px;
+    margin-top   : 20px;
+  }
+};
+
+@media only screen and (max-width: 576px){
+  .postino{
+    /* max-width    : 45%; */
+    min-width    : 100%;
+    margin-left  : auto;
+    margin-right : auto;
+    margin-bottom: 10px;
+    margin-top   : 20px;
+  }
+
+};
+
+
+
+
+
+

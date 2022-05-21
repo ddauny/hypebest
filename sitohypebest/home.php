@@ -48,7 +48,7 @@ include("login/connection.php");
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $idpost = $row["idpost"];
-                    echo "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
+                    echo "<div class='card postino'>
                 <div style='margin-left: 6px;margin-top:6px'>
                     <div class='card-title'>
                     <img src='$row[imgutente]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
@@ -75,7 +75,7 @@ include("login/connection.php");
                     echo "
                 <div style='position:relative;margin-top:5px; margin-right:5px' >
                     <div style='float:right;'>
-                        <button class='border-0 bg-transparent' onclick='like($row[idpost],$liked)'><i id='like$row[idpost]' class='$classlike fa-heart fa-lg'></i></button>
+                        <button style='position:absloute; left:2px'class='border-0 bg-transparent' onclick='like($row[idpost],$liked)'><i id='like$row[idpost]' class='$classlike fa-heart fa-lg'></i></button></>
                         <button class='border-0 bg-transparent' onclick='save($row[idpost],$saved)'><i id='save$row[idpost]' class='fa $classsave fa-shirt fa-lg'></i></button>
                         <div class='popup' onclick='popup()'><i style='margin-left:4px' class='fa fa-regular fa-tag fa-lg'></i>
                             <span class='popuptext' id='myPopup'>";
@@ -94,7 +94,7 @@ include("login/connection.php");
                                 }
                                 echo "<a class='disabledU' style='font-weight:bold'  href='profilo.php?idutente=$utentetaggato'>$rowtag[link]</a>";
                             } else { //sto taggando un articolo
-                                echo "<a  class='disabledU' style='font-weight:bold'  href='$rowtag[link]'>$rowtag[nome]</a>";
+                                echo "<a  class='disabledU' style='font-weight:bold'  target='_blanck'href='$rowtag[link]'>$rowtag[nome]</a>";
                             }
                             echo "<br>";
                         }
@@ -107,18 +107,21 @@ include("login/connection.php");
                 <div class='card-body'>
                     <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                 ";
+                echo "<hr>";
+                
                     $sqlcommenti = "select testo, data, username, utente.ID as idutente from commenti inner join utente on IDUtente = utente.ID where IDPost = $row[idpost]";
                     $resultcommenti = mysqli_query($conn, $sqlcommenti);
                     if ($resultcommenti->num_rows > 0) {
-                        echo "<hr>";
+                        echo "<div class='commentiDiv' >";
                         while ($row = $resultcommenti->fetch_assoc()) {
                             echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label  for='$row[username]'>$row[testo]</label> <label style='font-size:10px;float:right'>$row[data]</label></div>";
                         }
+                        echo "</div>";
                     }
                     // INIZIA LA PARTE PER COMMENTAREEE
                     echo "
                     <div style='margin-top:8px'>
-                    <form class='' role='search' action='post/comments.php?idpost=$idpost' method='post'>
+                    <form role='search' action='post/comments.php?idpost=$idpost' method='post'>
                         <input type='search' class='buttonCommento' name='commento' placeholder='Aggiungi un commento...' />
                         <input type='submit' class='buttonPubblica' value='Pubblica'/>
                     </form>

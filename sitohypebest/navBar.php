@@ -4,7 +4,7 @@ echo '
 <nav class="navbar sticky-top navbar-expand text-white" aria-label="Tenth navbar example" style="background-color: #c82a1e;">
         <div class="container-fluid justify-content-start">
             <a class="disabled navbar-brand" href="index.php"><img src="img/icon.png" alt="" width="35px" class="d-inline-block align-text-top" /></a>
-            <h3><a class="disabled navbar-brand" href="index.php">HypeBest</a></h3>
+            <h3 class="disableTesto"><a class="disableTesto disabled navbar-brand" href="index.php">HypeBest</a></h3>
 
             <div class="collapse navbar-collapse"  style="  position: absolute;left: 50%;transform: translate(-50%);"id="navbarsExample08">
                 <div class="navbar-nav">
