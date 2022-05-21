@@ -80,7 +80,7 @@ include("login/connection.php");
                 echo "<div><button type='button' class='btn btn-dark 'onclick='follow($idutente)'>Follow</button></div>";
             }
         } else {
-            echo "<div class='align-self-end'><button class='border-0 bg-transparent' onclick='edit($idutente)'><i class='fa-solid fa-pen-to-square fa-xl'></i></button>
+            echo "<div class='align-self-end'><button class='border-0 bg-transparent'><a class='disabledU' href='saves.php'><i class='fa da-solid fa-shirt fa-lg'></i></a></button><button class='border-0 bg-transparent' onclick='edit($idutente)'><i class='fa-solid fa-pen-to-square fa-xl'></i></button>
                             <button class='border-0 bg-transparent' onclick='logout()'><i class='fa-solid fa-arrow-right-from-bracket fa-xl'></i></button></div>";
         }
         echo "</div>";

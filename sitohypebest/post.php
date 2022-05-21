@@ -20,6 +20,7 @@
 <?php
 session_start();
 include("login/connection.php");
+include("navBar.php");
 if (isset($_SESSION["idutente"])) {
     $idutente = $_SESSION["idutente"];
     $idpost = $_GET["idpost"];
@@ -34,12 +35,12 @@ if (isset($_SESSION["idutente"])) {
                     <div class='card-title'>
                     <img src='$row[imgutente]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;margin-left:5px;'>
                     <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a>";
-                    
-                    if($_SESSION["idutente"] == $row["idutente"]){
-                        echo "<a class='disabledU' href='post/delete.php?idpost=$row[idpost]' style='position:absolute;right:10px;top:26px'><i class='fa-solid fa-xmark fa-2xl'></i></a>";
-                    }
-                    
-                  echo   "</div>
+
+            if ($_SESSION["idutente"] == $row["idutente"]) {
+                echo "<a class='disabledU' href='post/delete.php?idpost=$row[idpost]' style='position:absolute;right:10px;top:26px'><i class='fa-solid fa-xmark fa-2xl'></i></a>";
+            }
+
+            echo   "</div>
 
                 <div><img src='$row[imgpost]' class='card-img-top' ></div>  
 
