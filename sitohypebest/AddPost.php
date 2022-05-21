@@ -3,52 +3,61 @@
 
 
 <head>
-    <title>HypeBest - Aggiungi Post</title>
+    <title>HypeBest - Add Post</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/styleAddPost.css" type="text/css">
+    <script src="js/addTag.js"></script>
 </head>
 
 
 <body>
-    <form action="chkAddPost.php" enctype="multipart/form-data" method="post">
-        <div class="container">
+    <div class="container-fluid">
+        <div class="">
+            <form action="chkAddPost.php" enctype="multipart/form-data" method="post">
+                <div class="container">
 
-            <label for="descrizione"><b>Descrizione<b></label>
-            <input type="text" placeholder="Descrizione" id="descrizione" name="descrizione" required>
+                    <label for="descrizione"><b>Descrizione<b></label>
+                    <input type="text" placeholder="Descrizione" id="descrizione" name="descrizione" required>
 
-            <label for="sesso"><b>Sesso<b></label><br>
-            <select id="sesso" name="sesso" required>
-                <option value=0>Maschio</option>
-                <option value=1>Femmina</option>
-                <option value=2>Preferisco non specificare</option>
-            </select>
+                    <label for="sesso"><b>Sesso<b></label><br>
+                    <select id="sesso" name="sesso" required>
+                        <option value=0>Maschio</option>
+                        <option value=1>Femmina</option>
+                        <option value=2>Preferisco non specificare</option>
+                    </select>
 
-            <br><label for="img"><b>Immagine<b></label>
-            <input name="img" id="img" type="file" required />
+                    <br><label for="img"><b>Immagine<b></label>
+                    <input name="img" id="img" type="file" required />
 
-            <br><label for="interesse"><b>Situazione<b></label><br>
-            <?php
-            session_start();
-            include("login/connection.php");
-            $sql = "select * from interesse";
-            $result = mysqli_query($conn, $sql);
-            if ($result->num_rows > 0) {
-                echo "<select name='interesse' id='interesse' required>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value=$row[ID]>$row[interesse]</option>";
-                }
-                echo "</select><br>";
-            }
-            ?>
+                    <br><label for="interesse"><b>Situazione</b></label><br>
+                    <?php
+                    session_start();
+                    include("login/connection.php");
+                    $sql = "select * from interesse";
+                    $result = mysqli_query($conn, $sql);
+                    if ($result->num_rows > 0) {
+                        echo "<select name='interesse' id='interesse' required>";
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[ID]>$row[interesse]</option>";
+                        }
+                        echo "</select><br>";
+                    }
+                    ?>
+                        <label for="tag"><b>Tag<b></label>
+                        <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
+                        <label for="nometag"><b>Nome Tag<b></label>
+                        <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag">
+                        <button onclick='addTag()'><b>Tag</b></button>
+                    
+                    <br><button onclick="submit()"><b>Aggiungi Post</b></button><br>
 
-            <label for="tag"><b>Tag<b></label>
-            <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
-            <label for="nometag"><b>Nome Tag<b></label>
-            <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag">
-            <button onclick='addTag()'></button>
-            <br><button onclick="submit()"><b>Aggiungi Post</b></button><br>
+                </div>
 
+
+            </form>
         </div>
-    </form>
+    </div>
 </body>
 
 </html>

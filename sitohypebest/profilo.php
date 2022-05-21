@@ -8,7 +8,7 @@ include("login/connection.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Profilo</title>
+    <title>HypeBest - Profile</title>
 
     <script src="https://kit.fontawesome.com/bc3de12e9c.js" crossorigin="anonymous"></script>
 

@@ -7,7 +7,7 @@ include("login/connection.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Home</title>
+    <title>HypeBest - Home</title>
     <script src="js/tag.js"></script>
     <script src="https://kit.fontawesome.com/bc3de12e9c.js" crossorigin="anonymous"></script>
 
@@ -23,6 +23,14 @@ include("login/connection.php");
     <link href="css/headers.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/tag.css" rel="stylesheet">
+    <style>
+        .redIcon{
+            color:red;
+        }
+        .blacIcon{
+            color:black;
+        }
+    </style>
 </head>
 <nav class="navbar navbar-expand-lg p-3 text-white" style="background-color: #c82a1e;">
     <div class="container-fluid">
@@ -88,8 +96,7 @@ include("login/connection.php");
             $result = mysqli_query($conn, $sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo
-                    "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
+                    echo "<div class='card' style='max-width:50%;min-width:460px; margin-left: auto; margin-right: auto;margin-bottom:10px;margin-top:20px'>
                 <div style='margin-left: 6px;margin-top:6px'>
                     <div class='card-title'>
                     <img src='$row[imgutente]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
@@ -103,16 +110,16 @@ include("login/connection.php");
                     $classlike = "fa-regular";
                     if ($resultlike->num_rows > 0) {
                         $liked = true;
-                        $classlike = "fa-solid";
+                        $classlike = "fa-solid redIcon";
                     }
 
                     $sqllike = "select * from salva where IDPost = $row[idpost] and IDUtente = $_SESSION[idutente]";
                     $resultlike = mysqli_query($conn, $sqllike);
                     $saved = 0;
-                    $classsave = "fa-regular";
+                    $classsave = "blackIcon";
                     if ($resultlike->num_rows > 0) {
-                        $liked = true;
-                        $classsave = "fa-solid";
+                        $saved = true;
+                        $classsave = "redIcon";
                     }
 
 
@@ -123,7 +130,7 @@ include("login/connection.php");
                 <div style='position:relative;margin-top:5px; margin-right:5px' >
                     <div style='float:right;'>
                         <button class='border-0 bg-transparent' onclick='like($row[idpost],$liked)'><i id='like$row[idpost]' class='$classlike fa-heart fa-lg'></i></button>
-                        <button class='border-0 bg-transparent' onclick='save($row[idpost], $saved)'><i id='save$row[idpost]' class='fa $classsave fa-shoe-prints fa-lg'></i></button>
+                        <button class='border-0 bg-transparent' onclick='save($row[idpost],$saved)'><i id='save$row[idpost]' class='fa $classsave fa-shirt fa-lg'></i></button>
                         <div class='popup' onclick='popup()'><i style='margin-left:4px' class='fa fa-regular fa-tag fa-lg'></i>
                             <span class='popuptext' id='myPopup'>";
 

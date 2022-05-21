@@ -9,8 +9,9 @@ function like(id, liked) {
             if (!liked) {
                 $("#like" + id).removeClass("fa-regular");
                 $("#like" + id).addClass("fa-solid");
+                $("#save" + id).addClass("blackIcon");
+                $("#save" + id).addClass("redIcon");
             } else {
-                
                 $("#like" + id).removeClass("fa-solid");
                 $("#like" + id).addClass("fa-regular");
             }
@@ -29,10 +30,12 @@ function save(id,saved) {
             if (!saved) {
                 $("#save" + id).removeClass("fa-regular");
                 $("#save" + id).addClass("fa-solid");
+                $("#save" + id).removeClass("redShirt");
             } else {
-                
-                $("#save" + id).removeClass("fa-solid");
-                $("#save" + id).addClass("fa-regular");
+                //$("#save" + id).removeClass("redShirt");
+                //$("#save" + id).removeClass("fa-solid");
+                //$("#save" + id).addClass("fa-regular");
+                $("#save" + id).addClass("redShirt");
             }
             window.location.reload("index.php");
         }
