@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("login/connection.php");
+
 ?>
 
 <head>
@@ -114,12 +115,19 @@ include("login/connection.php");
                     $sqlcommenti = "select testo, data, username, utente.ID as idutente from commenti inner join utente on IDUtente = utente.ID where IDPost = $row[idpost]";
                     $resultcommenti = mysqli_query($conn, $sqlcommenti);
                     if ($resultcommenti->num_rows > 0) {
-                        echo "<p>Commenti:</p>";
+                        echo "<hr>";
                         while ($row = $resultcommenti->fetch_assoc()) {
-                            echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label for='$row[username]'>$row[testo]</label> <label>$row[data]</label></div>";
+                            echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label  for='$row[username]'>$row[testo]</label> <label style='font-size:10px;float:right'>$row[data]</label></div>";
                         }
                     }
-
+                    // INIZIA LA PARTE PER COMMENTAREEE
+                    echo "
+                    <div style='margin-top:8px'>
+                    <form class='' role='search' action='comments.php'>
+                        <input type='search' class='buttonCommento' name='commentino'placeholder='Aggiungi un commento...' />
+                        <input type='submit' class='buttonPubblica' value='Pubblica'/>
+                    </form>
+                    </div>";
                     echo "</div></div>";
                 }
             } else { //sono loggato ma non seguo nessuno, suggerisco i post dagli interessi
@@ -176,6 +184,7 @@ include("login/connection.php");
                                 }
                             }
                             echo "</span>
+
                         </div>
                         
                     </div>
@@ -191,7 +200,6 @@ include("login/connection.php");
                                     echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label for='$row[username]'>$row[testo]</label> <label>$row[data]</label></div>";
                                 }
                             }
-
                             echo "</div></div>";
                         }
                     }

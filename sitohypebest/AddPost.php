@@ -4,14 +4,32 @@
 
 <head>
     <title>HypeBest - Add Post</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
     <link rel="stylesheet" href="css/styleAddPost.css" type="text/css">
     <script src="js/addTag.js"></script>
+
+
+    <script src="https://kit.fontawesome.com/bc3de12e9c.js" crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="css/headers.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+
 </head>
 
 
 <body>
+    <?php
+    session_start();
+    include("login/connection.php");
+    include("navBar.php")
+    ?>
     <div class="container-fluid">
         <div class="">
             <form action="chkAddPost.php" enctype="multipart/form-data" method="post">
@@ -32,8 +50,6 @@
 
                     <br><label for="interesse"><b>Situazione</b></label><br>
                     <?php
-                    session_start();
-                    include("login/connection.php");
                     $sql = "select * from interesse";
                     $result = mysqli_query($conn, $sql);
                     if ($result->num_rows > 0) {
@@ -44,12 +60,12 @@
                         echo "</select><br>";
                     }
                     ?>
-                        <label for="tag"><b>Tag<b></label>
-                        <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
-                        <label for="nometag"><b>Nome Tag<b></label>
-                        <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag">
-                        <button onclick='addTag()'><b>Tag</b></button>
-                    
+                    <label for="tag"><b>Tag<b></label>
+                    <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
+                    <label for="nometag"><b>Nome Tag<b></label>
+                    <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag">
+                    <button onclick='addTag()'><b>Tag</b></button>
+
                     <br><button onclick="submit()"><b>Aggiungi Post</b></button><br>
 
                 </div>

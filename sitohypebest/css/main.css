@@ -32,3 +32,25 @@ a.disabled:link {
 a.hover:hover{
   color: black;
 }
+
+.center-div{
+  position: absolute;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+}
+
+.buttonCommento{
+  width:85%;
+  float: left;
+  border:none;
+}
+.buttonCommento:focus{
+  outline: none;
+}
+.buttonPubblica{
+  float: right;
+  border:none;
+  background-color: transparent;
+  color: red;
+  font-weight: bold;
+}
