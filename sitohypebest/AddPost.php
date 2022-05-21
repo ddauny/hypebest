@@ -60,10 +60,21 @@
                         echo "</select><br>";
                     }
                     ?>
-                    <label for="tag"><b>Tag<b></label>
+
+                    <div class="input-group">
+                    <span class="input-group">Tag e nome tag</span>
+                    <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag" class="form-control">
+                    <input type="text" placeholder="nome da visualizzare" id="nometag" name="nometag" class="form-control">
+
+                    <div class="input-group">
+                    <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag" class="form-control">
+                    <input type="text" placeholder="nome da visualizzare" id="nometag" name="nometag" class="form-control">
+                    </div>
+
+                    <!-- <label for="tag"><b>Tag<b></label>
                     <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
                     <label for="nometag"><b>Nome Tag<b></label>
-                    <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag">
+                    <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag"> -->
                     <button onclick='addTag()'><b>Tag</b></button>
 
                     <br><button onclick="submit()"><b>Aggiungi Post</b></button><br>
