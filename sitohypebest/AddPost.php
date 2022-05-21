@@ -20,6 +20,8 @@
     <link href="css/headers.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
+    <script src="js/addInput.js"></script>
+
 
 </head>
 
@@ -61,10 +63,13 @@
                     }
                     ?>
 
-                    <div class="input-group">
-                    <span class="input-group">Tag e nome tag</span>
-                    <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag[]" class="form-control">
-                    <input type="text" placeholder="nome da visualizzare" id="nometag" name="nometag[]" class="form-control">
+                    <div class="input-group" id="container-input">
+                        <span class="input-group">Tag e nome tag</span>
+                        <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag[]" class="form-control">
+                        <input type="text" placeholder="nome da visualizzare" id="nometag" name="nometag[]" class="form-control">
+                        
+                    </div>
+                    <input type="button" placeholder="Aggiungi" onclick="aggiungiInput()" value="Aggiungi"/>
                     
                     <!-- <label for="tag"><b>Tag<b></label>
                     <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
