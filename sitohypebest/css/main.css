@@ -28,3 +28,7 @@ a.disabled:link {
   height: 293px;;
 
 }
+
+a.hover:hover{
+  color: black;
+}

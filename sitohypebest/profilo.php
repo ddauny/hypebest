@@ -58,7 +58,7 @@ include("login/connection.php");
             </form>
 
             <div class="text-end">
-                <button type="button" style="border:0px solid white" class="btn btn-outline-light"><a class="disabled"href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
+                <button type="button" style="border:0px solid white" class="btn"><a class="disabled hover"href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
                 <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
                 <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
             </div>
@@ -115,12 +115,12 @@ include("login/connection.php");
                             $sql = "select ID from segue where IDSeguito = $idutente and IDSeguace = $_SESSION[idutente]";
                             $r = mysqli_query($conn, $sql);
                             if ($r->num_rows > 0) { //vuol dire che già segue
-                                echo "<div><button onclick='unfollow($idutente)'>SMETTI DI SEGUIRE</button></div>";
+                                echo "<div><button type='button' class='btn btn-danger'onclick='unfollow($idutente)'>Unfollow</button></div>";
                             } else {
-                                echo "</div><button onclick='follow($idutente)'>SEGUI</button></div>";
+                                echo "<div><button type='button' class='btn btn-dark 'onclick='follow($idutente)'>Follow</button></div>";
                             }
                         } else {
-                            echo "<div><button class='border-0 bg-transparent' onclick='edit($idutente)'><i class='fa-solid fa-pen-to-square fa-xl'></i></button>
+                            echo "<div class='align-self-end'><button class='border-0 bg-transparent' onclick='edit($idutente)'><i class='fa-solid fa-pen-to-square fa-xl'></i></button>
                             <button class='border-0 bg-transparent' onclick='logout()'><i class='fa-solid fa-arrow-right-from-bracket fa-xl'></i></button></div>";
                         }
                         echo"</div>";
@@ -130,8 +130,8 @@ include("login/connection.php");
            
             echo " </div><div class='d-flex flex-row justify-content-evenly my-4 '>
         <div class=''>$nfollower followers </div>
-        <div class=''>$npost post</div>
-        <div class=''>$nsave salvataggi</div>
+        <div class=''>$npost posts</div>
+        <div class=''>$nsave saves</div>
  </div>
  <hr>
  

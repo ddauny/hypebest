@@ -1,24 +1,42 @@
- 
-function like(id) {
+
+function like(id, liked) {
     // window.location = "like.php?idpost=" + id;
+    let s = "post/like.php?idpost=" + id;
+    if (liked) s = "post/unlike.php?idpost=" + id;
     $.ajax({
-        url: "post/like.php?idpost=" + id,
+        url: s,
         success: function () {
-            $("#like" + id).removeClass("fa-regular");
-            $("#like" + id).addClass("fa-solid");
+            if (!liked) {
+                $("#like" + id).removeClass("fa-regular");
+                $("#like" + id).addClass("fa-solid");
+            } else {
+                
+                $("#like" + id).removeClass("fa-solid");
+                $("#like" + id).addClass("fa-regular");
+            }
+            window.location.reload("index.php");
         }
     });
 }
 
-function save(id) {
+function save(id,saved) {
     //window.location = "post/save.php?idpost=" + id;
+    let s = "post/save.php?idpost=" + id;
+    if (saved) s = "post/unsave.php?idpost=" + id;
     $.ajax({
-            url: "post/save.php?idpost=" + id,
-            success: function(data) {
-                $("#save").removeClass("fa-thin");
-                $("#save").addClass("fa-solid");
+        url: s,
+        success: function () {
+            if (!saved) {
+                $("#save" + id).removeClass("fa-regular");
+                $("#save" + id).addClass("fa-solid");
+            } else {
+                
+                $("#save" + id).removeClass("fa-solid");
+                $("#save" + id).addClass("fa-regular");
             }
-        });
+            window.location.reload("index.php");
+        }
+    });
 }
 
 

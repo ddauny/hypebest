@@ -95,12 +95,36 @@ include("login/connection.php");
                     <img src='$row[imgutente]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
                     <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
                 </div>
-                <div><img src='$row[imgpost]' class='card-img-top' ></div>  
+                <div><img src='$row[imgpost]' class='card-img-top' ></div> ";
+
+                    $sqllike = "select * from likes where IDPost = $row[idpost] and IDUtente = $_SESSION[idutente]";
+                    $resultlike = mysqli_query($conn, $sqllike);
+                    $liked = 0;
+                    $classlike = "fa-regular";
+                    if ($resultlike->num_rows > 0) {
+                        $liked = true;
+                        $classlike = "fa-solid";
+                    }
+
+                    $sqllike = "select * from salva where IDPost = $row[idpost] and IDUtente = $_SESSION[idutente]";
+                    $resultlike = mysqli_query($conn, $sqllike);
+                    $saved = 0;
+                    $classsave = "fa-regular";
+                    if ($resultlike->num_rows > 0) {
+                        $liked = true;
+                        $classsave = "fa-solid";
+                    }
+
+
+
+
+
+                    echo "
                 <div style='position:relative;margin-top:5px; margin-right:5px' >
                     <div style='float:right;'>
-                        <button class='border-0 bg-transparent' onclick='like($row[idpost])'><i id='like$row[idpost]' class='fa-regular fa-heart fa-lg'></i></button>
-                        <button class='border-0 bg-transparent' onclick='save($row[idpost])'><i id='save$row[idpost]' class='fa fa-regular fa-shoe-prints fa-lg'></i></button>
-                        <div class='popup' onclick='popup()'><i class='fa fa-regular fa-tag fa-lg'></i>
+                        <button class='border-0 bg-transparent' onclick='like($row[idpost],$liked)'><i id='like$row[idpost]' class='$classlike fa-heart fa-lg'></i></button>
+                        <button class='border-0 bg-transparent' onclick='save($row[idpost], $saved)'><i id='save$row[idpost]' class='fa $classsave fa-shoe-prints fa-lg'></i></button>
+                        <div class='popup' onclick='popup()'><i style='margin-left:4px' class='fa fa-regular fa-tag fa-lg'></i>
                             <span class='popuptext' id='myPopup'>";
 
                     $sqltag = "select link, tipo, nome from tag join presenta on tag.ID = presenta.IDTag where presenta.IDPost = $row[idpost]";
@@ -162,8 +186,12 @@ include("login/connection.php");
                             <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
                         </div>
         
-                        <div><img src='$row[imgpost]' class='card-img-top' ></div>  
-        
+                        <div><img src='$row[imgpost]' class='card-img-top' ></div>  ";
+                            $sqllike = "select * from like where IDPost = $row[idpost] and IDUtente = $_SESSION[idutente]";
+                            $resultlike = mysqli_query($conn, $sqllike);
+                            $liked = false;
+                            if ($resultlike->num_rows > 0) $liked = true;
+                            echo "
                         <div style='position:relative;margin-top:5px; margin-right:5px' >
                             <div style='float:right;'>
                                 <button class='border-0 bg-transparent' onclick='like($row[idpost])'><i id='like$row[idpost]' class='fa-regular fa-heart fa-lg'></i></button>
