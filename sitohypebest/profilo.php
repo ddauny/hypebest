@@ -100,15 +100,15 @@ include("login/connection.php");
         //COMINCIA VISUALIZZAZIONE DEI POST
         if ($resultpost->num_rows > 0) { //se ho almeno un post
             echo "<div class='d-flex flex-row justify-content-center'>";
-           //$contatore = 0;
-            echo "<div class=' d-flex flex-row ' style=''>";
+           $contatore = 0;
+            echo "<div class=' d-flex flex-row row justify-content-center ' style='max-width:1000px'>";
             while ($post = $resultpost->fetch_assoc()) {
-                echo "<div class='col-lg-4 col-md-4 my-2'>
+                echo "<div class='col-lg-4 col-md-4 flex-fill my-2'style=''>
                     <a href='post.php?idpost=$post[ID]'>
-                        <img class='square img-fluid'src='$post[img]'>
+                        <img class='square flex-fill  img-fluid'src='$post[img]'>
                     </a>
                 </div>";
-               // $contatore++;
+               $contatore++;
 
                 //     if($contatore==3){
                 //         $contatore=0;
@@ -117,6 +117,16 @@ include("login/connection.php");
 
                 //     }
             }
+                while($contatore%3){
+                    echo "<div style='visibility:hidden' class='col-lg-4 col-md-4 flex-fill my-2'>
+                    <a>
+                        <img class='square flex-fill img-fluid'src=''>
+                    </a>
+                </div>";
+               $contatore++;
+
+                }
+            
             echo "</div>";
         }
         echo "</div></div></div>";
