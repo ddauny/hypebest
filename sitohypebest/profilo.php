@@ -28,55 +28,9 @@ include("login/connection.php");
 <body>
 
 
-
-
-<nav class="navbar sticky-top navbar-expand text-white" aria-label="Tenth navbar example" style="background-color: #c82a1e;">
-    <div class="container-fluid">
-        <a class="disabled navbar-brand" href="index.php"><img src="img/icon.png" alt="" width="35px" class="d-inline-block align-text-top" /></a>
-        <h3><a class="disabled navbar-brand" href="index.php">HypeBest</a></h3>
-
-        <div class="collapse navbar-collapse " id="navbarsExample08">
-            <div class="navbar-nav">
-
-                <div class="d-flex justify-content-end mt-2">
-                    <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center"> -->
-                    <a href="index.php" class=" nav-link px-2 text-white"><i class="fa-solid fa-house fa-lg"></i></a>
-                    <a href="AddPost.php" class="nav-link px-2 text-white"><i class=" fa fa-regular fa-plus fa-lg"></i></a>
-                    <a href="search.php" class="nav-link px-2 text-white"><i class="fa fa-regular fa-magnifying-glass fa-lg"></i></a>
-                    <!-- <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">About</a></li> -->
-                    <!-- </ul> -->
-
-
-
-<<<<<<< Updated upstream
-            <div class="text-end">
-                <button type="button" style="border:0px solid white" class="btn"><a class="disabled hover"href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
-                <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
-                <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
-            </div>
-=======
-                    <!-- <h3>HypeBest</h3> -->
->>>>>>> Stashed changes
-
-                </div>
-
-            </div>
-            <form class=" " role="search">
-                    <input type="search" class="form-control form-control-dark text-black bg-white" name="q" placeholder="Cerca..." aria-label="Search">
-                </form>
-
-                <div class="text-end">
-                    <button type="button" style="border:0px solid white" class="btn btn-outline-light"><a class="disabled" href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
-                    <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
-                    <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
-                </div>
-        </div>
-
-    </div>
-</nav>
-
     <?php
+    include("navBar.php");
+
     if (isset($_SESSION["idutente"])) {
         if (isset($_GET["idutente"])) {
             $idutente = $_GET["idutente"];
@@ -115,26 +69,26 @@ include("login/connection.php");
                 <div class='d-flex flex-column ms-5'>
                         <div><h3>$rowutente[username]</h3></div>
                         <div>$rowutente[bio]</div>";
-                
-                        if ($idutente != $_SESSION["idutente"]) { //se l'utente che guarda il profilo non è se stesso
 
-                            $sql = "select ID from segue where IDSeguito = $idutente and IDSeguace = $_SESSION[idutente]";
-                            $r = mysqli_query($conn, $sql);
-                            if ($r->num_rows > 0) { //vuol dire che già segue
-                                echo "<div><button type='button' class='btn btn-danger'onclick='unfollow($idutente)'>Unfollow</button></div>";
-                            } else {
-                                echo "<div><button type='button' class='btn btn-dark 'onclick='follow($idutente)'>Follow</button></div>";
-                            }
-                        } else {
-                            echo "<div class='align-self-end'><button class='border-0 bg-transparent' onclick='edit($idutente)'><i class='fa-solid fa-pen-to-square fa-xl'></i></button>
+        if ($idutente != $_SESSION["idutente"]) { //se l'utente che guarda il profilo non è se stesso
+
+            $sql = "select ID from segue where IDSeguito = $idutente and IDSeguace = $_SESSION[idutente]";
+            $r = mysqli_query($conn, $sql);
+            if ($r->num_rows > 0) { //vuol dire che già segue
+                echo "<div><button type='button' class='btn btn-danger'onclick='unfollow($idutente)'>Unfollow</button></div>";
+            } else {
+                echo "<div><button type='button' class='btn btn-dark 'onclick='follow($idutente)'>Follow</button></div>";
+            }
+        } else {
+            echo "<div class='align-self-end'><button class='border-0 bg-transparent' onclick='edit($idutente)'><i class='fa-solid fa-pen-to-square fa-xl'></i></button>
                             <button class='border-0 bg-transparent' onclick='logout()'><i class='fa-solid fa-arrow-right-from-bracket fa-xl'></i></button></div>";
-                        }
-                        echo"</div>";
+        }
+        echo "</div>";
 
 
 
-           
-            echo " </div><div class='d-flex flex-row justify-content-evenly my-4 '>
+
+        echo " </div><div class='d-flex flex-row justify-content-evenly my-4 '>
         <div class=''>$nfollower followers </div>
         <div class=''>$npost posts</div>
         <div class=''>$nsave saves</div>
@@ -146,7 +100,7 @@ include("login/connection.php");
         //COMINCIA VISUALIZZAZIONE DEI POST
         if ($resultpost->num_rows > 0) { //se ho almeno un post
             echo "<div class='d-flex flex-row justify-content-center'>";
-            $contatore=0;
+            $contatore = 0;
             echo "<div class=' d-flex flex-row ' style='max-width:1020px;'>";
             while ($post = $resultpost->fetch_assoc()) {
                 echo "<div class='col-lg-4 col-md-4 my-2'>
@@ -155,13 +109,13 @@ include("login/connection.php");
                     </a>
                 </div>";
                 $contatore++;
-                
-            //     if($contatore==3){
-            //         $contatore=0;
-            //     echo "</div>";
-            // echo "<div class='row'>";
 
-            //     }
+                //     if($contatore==3){
+                //         $contatore=0;
+                //     echo "</div>";
+                // echo "<div class='row'>";
+
+                //     }
             }
             echo "</div>";
         }
