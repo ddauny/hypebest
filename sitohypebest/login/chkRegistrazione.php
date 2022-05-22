@@ -21,6 +21,7 @@ if (!isset($_SESSION["idutente"])) {
     if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile)) {
         $password = md5($password);
         $sql = "insert into utente (nome, cognome, email, username, dataNascita, sesso, img, bio, ruolo, password) values ('$nome', '$cognome', '$email', '$username', '$data', '$sesso', '$up', '$bio', '0', '$password')";
+        try{
         if ($conn->query($sql) === true) { //ho inserito nel db
             $sql = "select ID from utente where '$username' = username";
             $result = mysqli_query($conn, $sql);
@@ -33,6 +34,11 @@ if (!isset($_SESSION["idutente"])) {
         } else {
             header("location:registrazione.php");
         }
+        } catch (Exception $e){
+            header("location:registrazione.php");
+        }
+    } else {
+        header("location:registrazione.php");
     }
 } else {
     header("location:../home.php");
