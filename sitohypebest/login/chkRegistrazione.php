@@ -21,14 +21,14 @@ if (!isset($_SESSION["idutente"])) {
     if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile)) {
         $password = md5($password);
         $sql = $conn->prepare("insert into utente (nome, cognome, email, username, dataNascita, sesso, img, bio, ruolo, password) values (?,?,?,?,?,?,?,?,?,?)");
-        $zero = '0';
-        $sql->bind_param("sssssissss", $nome, $cognome, $email, $username, $data, $sesso, $up, $zero, $password);
-        $sql->execute();
+        $zero = 0;
+        $sql->bind_param("sssssissis", $nome, $cognome, $email, $username, $data, $sesso, $up, $bio, $zero, $password);
         try {
-            if ($conn->query($sql) === true) { //ho inserito nel db
+            if ($sql->execute() === true) { //ho inserito nel db
                 $sql = $conn->prepare("select ID from utente where ? = username");
                 $sql->bind_param("s", $username);
                 $sql->execute();
+                $result = $sql->get_result();
                 $row = $result->fetch_assoc();
                 $_SESSION["idutente"] = $row["ID"];
                 echo "cvwopdvcwp";

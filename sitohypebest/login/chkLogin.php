@@ -6,7 +6,7 @@ $pass = md5($_POST["password"]);
 $sql = $conn->prepare("select ID, nome, ruolo from utente where password = ? and username = ?");
 $sql->bind_param("ss", $pass, $user);
 $sql->execute();
-
+$result = $sql->get_result();
 if($result->num_rows > 0){
     $row = $result->fetch_assoc();
     $_SESSION["idutente"] = $row["ID"];
