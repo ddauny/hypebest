@@ -9,11 +9,11 @@ if ($result->num_rows > 0) {
         array_push($array, $row["username"]);
     }
 }
-$sql = "select distinct interesse.interesse as interesse from post join interesse where situazione = interesse.ID and pubblicato = 1";
+$sql = "select distinct situazione from post";
 $result = mysqli_query($conn, $sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        array_push($array, $row["interesse"]);
+        array_push($array, $row["situazione"]);
     }
 }
 
@@ -81,7 +81,14 @@ if ($result->num_rows > 0) {
             color: #fff;
             cursor: pointer;
         }
-
+        button[type=submit] {
+            border: 1px solid transparent;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #c82a1e;
+            color: #fff;
+            cursor: pointer;
+        }
         .autocomplete-items {
             position: absolute;
             border: 1px solid #d4d4d4;
@@ -139,7 +146,9 @@ if ($result->num_rows > 0) {
                     <input id="myInput" type="text" name="selected" placeholder="Search..">
                 </div>
                 <div class="autocomplete flex-fill">
-                    <input style="float:right;" type="submit" value="Send"/>
+                    <!-- <input style="float:right;" type="submit" value="Send" /> -->
+                    <button class="" style="float:right;" type="submit" value="Send"><i id="search" class="fa fa-regular fa-magnifying-glass fa-lg"></i></button>
+
                 </div>
             </div>
 
