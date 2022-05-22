@@ -3,8 +3,9 @@ session_start();
 include("connection.php");
 $user = $_POST["username"];
 $pass = md5($_POST["password"]);
-$sql = "select ID, nome, ruolo from utente where password = '$pass' and username = '$user'";
-$result = mysqli_query($conn, $sql);
+$sql = $conn->prepare("select ID, nome, ruolo from utente where password = ? and username = ?");
+$sql->bind_param("ss", $pass, $user);
+$sql->execute();
 
 if($result->num_rows > 0){
     $row = $result->fetch_assoc();
