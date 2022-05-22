@@ -39,7 +39,7 @@ include('login/connection.php');
         $result = mysqli_query($conn, $sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            echo " <div class='container-fluid'>
+            echo " <div class='container'>
         <div class=''>
             <form id='form' action='chkEdit.php' enctype='multipart/form-data' method='post'>
                 <div class='container'>
