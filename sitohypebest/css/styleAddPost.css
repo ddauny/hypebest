@@ -16,7 +16,7 @@ input[type=file], input[type=text], .cate, .brand {
     box-sizing: border-box;
 }
 
-button {
+.buttonRed{
     background-color: rgb(236, 42, 42);
     color: black;
     padding: 14px 20px;
@@ -24,6 +24,7 @@ button {
     border: solid black 1px;
     cursor: pointer;
     width: 100%;
+    font-weight: bold
 }
 
 button:hover {

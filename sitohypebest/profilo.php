@@ -62,8 +62,8 @@ include("login/connection.php");
 
 
         echo "<div class='container my-3' >
-            <div style='width:55%' class='d-flex flex-row justify-content-center' >
-                <div>
+            <div  class='d-flex flex-row headerUser justify-content-center' >
+                <div >
                     <img class='card-img-top' style='width: 150px;height: 150px;object-fit:cover;border-radius:80%;' src='$rowutente[img]'>
                 </div>
                 <div class='d-flex flex-column ms-5'>
@@ -101,11 +101,11 @@ include("login/connection.php");
         if ($resultpost->num_rows > 0) { //se ho almeno un post
             echo "<div class='d-flex flex-row justify-content-center'>";
            $contatore = 0;
-            echo "<div class=' d-flex flex-row row justify-content-center ' style='max-width:1000px'>";
+            echo "<div class=' d-flex flex-row row dimensione justify-content-center '>";
             while ($post = $resultpost->fetch_assoc()) {
                 echo "<div class='col-lg-4 col-md-4 flex-fill my-2'style=''>
                     <a href='post.php?idpost=$post[ID]'>
-                        <img class='square flex-fill  img-fluid'src='$post[img]'>
+                        <img class='square imageDimensione flex-fill  img-fluid'src='$post[img]'>
                     </a>
                 </div>";
                $contatore++;
