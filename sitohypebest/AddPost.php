@@ -32,7 +32,7 @@
     include("login/connection.php");
     include("navBar.php")
     ?>
-    <div class="container-fluid">
+    <div class="container">
         <div class="">
             <form action="chkAddPost.php" enctype="multipart/form-data" method="post">
                 <div class="container">
@@ -69,7 +69,7 @@
                         <input type="text" placeholder="nome da visualizzare" id="nometag" name="nometag[]" class="form-control">
                         
                     </div>
-                    <input type="button" placeholder="Aggiungi" onclick="aggiungiInput()" value="Aggiungi"/>
+                    <input type="button" class="buttonRed" onclick="aggiungiInput()" value="Aggiungi tag"/>
                     
                     <!-- <label for="tag"><b>Tag<b></label>
                     <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
@@ -78,7 +78,7 @@
                     
                     <!-- <button onclick='addTag()'><b>Tag</b></button> -->
 
-                    <br><button type='submit' onclick="submit()"><b>Aggiungi Post</b></button><br>
+                    <br><button type='submit' class="buttonRed" onclick="submit()">Aggiungi Post</button><br>
 
                 </div>
 
