@@ -30,9 +30,11 @@ if (isset($_SESSION["idutente"]) && isset($_POST["selected"])) {
         $row = $result->fetch_assoc();
         header("location:profilo.php?idutente=$row[ID]");
     } else {
-        $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione, utente.img as imgutente from post join utente on post.IDUtente = utente.ID where post.situazione like '%$selected%' and pubblicato = 1";
+       echo $selected;
+        $sql = "select post.ID as idpost, username, post.img as imgpost, utente.ID as idutente, descrizione, utente.img as imgutente from post join utente on post.IDUtente = utente.ID join interesse on interesse.ID = post.situazione where interesse.interesse = '$selected' and pubblicato = 1";
         $result = mysqli_query($conn, $sql);
         if ($result->num_rows > 0) {
+            echo "negro";
             while ($row = $result->fetch_assoc()) {
                 $idpost = $row["idpost"];
                 echo "<div class='card postino'>

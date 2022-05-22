@@ -123,7 +123,7 @@ include("login/connection.php");
                 <div class='mycardbody card-body'>
                     <p class='pborder card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                 ";
-                 
+
 
                     $sqlcommenti = "select testo, data, username, utente.ID as idutente from commenti inner join utente on IDUtente = utente.ID where IDPost = $row[idpost]";
                     $resultcommenti = mysqli_query($conn, $sqlcommenti);
@@ -212,23 +212,23 @@ include("login/connection.php");
                         
                     </div>
                 </div>
-                <div class='card-body'>
-                    <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
+                <div class='mycardbody card-body'>
+                    <p class='pborder card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                 ";
-                            echo "<hr>";
+
 
                             $sqlcommenti = "select testo, data, username, utente.ID as idutente from commenti inner join utente on IDUtente = utente.ID where IDPost = $row[idpost]";
                             $resultcommenti = mysqli_query($conn, $sqlcommenti);
                             if ($resultcommenti->num_rows > 0) {
                                 echo "<div class='commentiDiv' >";
                                 while ($row = $resultcommenti->fetch_assoc()) {
-                                    echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label  for='$row[username]'>$row[testo]</label> <label style='font-size:10px;float:right'>$row[data]</label></div>";
+                                    echo "<div class='pcommento card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label  for='$row[username]'>$row[testo]</label> <label style='font-size:10px;float:right'>$row[data]</label></div>";
                                 }
                                 echo "</div>";
                             }
                             // INIZIA LA PARTE PER COMMENTAREEE
                             echo "
-                    <div style='margin-top:8px'>
+                    <div style='margin-top:0px'>
                     <form role='search' action='post/comments.php?idpost=$idpost' method='post'>
                         <input type='search' class='buttonCommento' name='commento' placeholder='Aggiungi un commento...' />
                         <input type='submit' class='buttonPubblica' value='Pubblica'/>

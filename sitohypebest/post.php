@@ -34,12 +34,8 @@ if (isset($_SESSION["idutente"])) {
                 <div style='margin-left: 6px;margin-top:6px'>
                     <div class='card-title'>
                     <img src='$row[imgutente]' class='card-img-top' style='width:40px;height:40px; border-radius:80%;'>
-                    <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div>";
-            if ($_SESSION["idutente"] == $row["idutente"]) {
-                echo "<a class='disabledU' href='post/delete.php?idpost=$row[idpost]' style='position:absolute;right:10px;top:26px'><i class='fa-solid fa-xmark fa-2xl'></i></a>";
-            }
-            echo   "
-                    </div>
+                    <a class='disabledU' style='font-weight:bold;margin-left:5px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a></div> 
+                </div>
                 <div><img src='$row[imgpost]' class='card-img-top' ></div> ";
             $sqllike = "select * from likes where IDPost = $row[idpost] and IDUtente = $_SESSION[idutente]";
             $resultlike = mysqli_query($conn, $sqllike);
@@ -72,18 +68,14 @@ if (isset($_SESSION["idutente"])) {
                 while ($rowtag = $resulttag->fetch_assoc()) {
                     if ($rowtag["tipo"] == "profilo") { //se 0 è un tag utente
                         // echo $rowtag["link"];
-                        
                         $sqlutente = "select ID from utente where username = '$rowtag[link]'";
                         $resultutente = mysqli_query($conn, $sqlutente);
                         if ($resultutente->num_rows > 0) {
                             $rowutente = $resultutente->fetch_assoc();
                             $utentetaggato = $rowutente["ID"];
-                            
                         }
                         echo "<a class='disabledU' style='font-weight:bold'  href='profilo.php?idutente=$utentetaggato'>$rowtag[link]</a>";
                     } else { //sto taggando un articolo
-                       // echo "sdajkdcbkjas";
-                       echo $rowtag["tipo"];
                         echo "<a  class='disabledU' style='font-weight:bold'  target='_blanck'href='$rowtag[link]'>$rowtag[nome]</a>";
                     }
                     echo "<br>";
@@ -94,23 +86,23 @@ if (isset($_SESSION["idutente"])) {
                         
                     </div>
                 </div>
-                <div class='card-body'>
+                <div class='mycardbody card-body'>
                     <p class='pborder card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                 ";
-            echo "<hr>";
+
 
             $sqlcommenti = "select testo, data, username, utente.ID as idutente from commenti inner join utente on IDUtente = utente.ID where IDPost = $row[idpost]";
             $resultcommenti = mysqli_query($conn, $sqlcommenti);
             if ($resultcommenti->num_rows > 0) {
                 echo "<div class='commentiDiv' >";
                 while ($row = $resultcommenti->fetch_assoc()) {
-                    echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label  for='$row[username]'>$row[testo]</label> <label style='font-size:10px;float:right'>$row[data]</label></div>";
+                    echo "<div class='pcommento card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label  for='$row[username]'>$row[testo]</label> <label style='font-size:10px;float:right'>$row[data]</label></div>";
                 }
                 echo "</div>";
             }
             // INIZIA LA PARTE PER COMMENTAREEE
             echo "
-                    <div style='margin-top:8px'>
+                    <div style='margin-top:0px'>
                     <form role='search' action='post/comments.php?idpost=$idpost' method='post'>
                         <input type='search' class='buttonCommento' name='commento' placeholder='Aggiungi un commento...' />
                         <input type='submit' class='buttonPubblica' value='Pubblica'/>
