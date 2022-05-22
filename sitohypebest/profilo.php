@@ -78,7 +78,7 @@ include("login/connection.php");
                 <div >
                     <a href='$rowutente[img]' target='_blank'>
                     <img class='card-img-top' style='width: 150px;height: 150px;object-fit:cover;border-radius:80%;' src='$rowutente[img]'>
-                    <a/>
+                    </a>
                 </div>
                 <div class='d-flex flex-column ms-5'>
                         <div><h3>$rowutente[username]</h3></div>
