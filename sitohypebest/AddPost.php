@@ -26,11 +26,26 @@
 
     <script src="js/addInput.js"></script>
 
+    <style>
+        .myactive {
+            color: black;
+        }
+    </style>
+    <script>
+        function myactive() {
+            $.ajax({
+                success: function() {
 
+                    $("#add").addClass("myactive");
+
+                }
+            });
+        }
+    </script>
 </head>
 
 
-<body>
+<body onload="myactive();">
     <?php
     session_start();
     include("login/connection.php");

@@ -95,7 +95,7 @@ if (isset($_SESSION["idutente"])) {
                     </div>
                 </div>
                 <div class='card-body'>
-                    <p class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
+                    <p class='pborder card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username] </a> $row[descrizione]</p>
                 ";
             echo "<hr>";
 

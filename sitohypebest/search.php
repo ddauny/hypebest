@@ -104,10 +104,22 @@ if ($result->num_rows > 0) {
             background-color: DodgerBlue !important;
             color: #ffffff;
         }
+        .myactive {
+            color: black;
+        }
     </style>
+    <script>
+        function myactive() {
+            $.ajax({
+                success: function() {
+                    $("#search").addClass("myactive");
+                }
+            });
+        }
+    </script>
 </head>
 
-<body>
+<body onload="myactive();">
 
 
     <!--Make sure the form has the autocomplete function switched off:-->

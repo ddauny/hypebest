@@ -23,9 +23,21 @@ include("login/connection.php");
     <!-- Custom styles for this template -->
     <link href="css/headers.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/myactive.css" rel="stylesheet">
+    <script>
+        function myactive() {
+            $.ajax({
+                success: function() {
+
+                    $("#profile").addClass("myactive");
+
+                }
+            });
+        }
+    </script>
 </head>
 
-<body>
+<body onload="myactive();">
 
 
     <?php
@@ -62,7 +74,7 @@ include("login/connection.php");
 
 
         echo "<div class='container my-3' >
-            <div  class='d-flex flex-row headerUser justify-content-center' >
+            <div style='width:90%' class='d-flex flex-row headerUser justify-content-center' >
                 <div >
                     <img class='card-img-top' style='width: 150px;height: 150px;object-fit:cover;border-radius:80%;' src='$rowutente[img]'>
                 </div>

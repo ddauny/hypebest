@@ -11,15 +11,15 @@ echo '
 
                     <div class="d-flex">
                         <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center"> -->
-                        <a href="index.php" class=" nav-link px-2 text-white mx-1"><i class="fa-solid fa-house fa-lg"></i></a>
-                        <a href="AddPost.php" class="nav-link px-2 text-white mx-1"><i class=" fa fa-regular fa-plus fa-lg"></i></a>
-                        <a href="search.php" class="nav-link px-2 text-white mx-1"><i class="fa fa-regular fa-magnifying-glass fa-lg"></i></a>
+                        <a href="index.php"  class="hover wIcon nav-link px-2 text mx-1 "><i id="home" class="fa-solid fa-house fa-lg"></i></a>
+                        <a href="AddPost.php" class="hover wIcon nav-link px-2 text mx-1"><i id="add" class=" fa fa-regular fa-plus fa-lg"></i></a>
+                        <a href="search.php" class="hover nav-link wIcon px-2 text mx-1"><i id="search" class="fa fa-regular fa-magnifying-glass fa-lg"></i></a>
                         <!-- <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">About</a></li> -->
                         <!-- </ul> -->
 
                         <div class="text-end">
-                            <button type="button" style="border:0px solid white " class="btn mx-1 "><a class="disabled hover" href="profilo.php"><i class="fa-solid fa-user fa-lg"></i></a></button>
+                            <button type="button" style="border:0px solid white " class="btn mx-1 "><a class="disabled hover" href="profilo.php"><i id="profile" class="fa-solid fa-user fa-lg"></i></a></button>
                             <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
                             <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
                         </div>
