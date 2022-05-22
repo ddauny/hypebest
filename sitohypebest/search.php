@@ -74,12 +74,10 @@ if ($result->num_rows > 0) {
         input[type=text] {
             background-color: #f1f1f1;
             width: 100%;
-            border-top-left-radius: 6.25em ;
-            border-bottom-left-radius:6.25em ;
         }
 
         input[type=submit] {
-            background-color: DodgerBlue;
+            background-color: #c82a1e;
             color: #fff;
             cursor: pointer;
         }
@@ -141,7 +139,7 @@ if ($result->num_rows > 0) {
                     <input id="myInput" type="text" name="selected" placeholder="Search..">
                 </div>
                 <div class="autocomplete flex-fill">
-                    <input style="float:right;" type="submit" />
+                    <input style="float:right;" type="submit" value="Send"/>
                 </div>
             </div>
 
