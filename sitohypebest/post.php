@@ -2,6 +2,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js%22%3E"></script>
     <script src="js/featurePost.js"></script>
     <title>HypeBest - Post</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/bc3de12e9c.js" crossorigin="anonymous"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
