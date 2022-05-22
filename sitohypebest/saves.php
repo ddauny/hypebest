@@ -111,7 +111,7 @@ if (isset($_SESSION["idutente"])) {
             if ($resultcommenti->num_rows > 0) {
                 echo "<div class='commentiDiv' >";
                 while ($row = $resultcommenti->fetch_assoc()) {
-                    echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label  for='$row[username]'>$row[testo]</label> <label style='font-size:10px;float:right'>$row[data]</label></div>";
+                    echo "<div class='card-text'><a class='disabledU' style='font-weight:bold;margin-left:0px' href='profilo.php?idutente=$row[idutente]'>$row[username]</a> <label  for='$row[username]'>$row[testo]</label> <label style='font-size:10px;float:right'>".substr($row["data"],0,10)."</label></div>";
                 }
                 echo "</div>";
             }
