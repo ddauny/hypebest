@@ -9,7 +9,7 @@ if ($result->num_rows > 0) {
         array_push($array, $row["username"]);
     }
 }
-$sql = "select distinct situazione from post";
+$sql = "select distinct interesse.interesse as situazione from post join interesse on interesse.ID = post.situazione where pubblicato = 1";
 $result = mysqli_query($conn, $sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
