@@ -123,12 +123,16 @@ if ($result->num_rows > 0) {
 
 
     <!--Make sure the form has the autocomplete function switched off:-->
-    <form autocomplete="off" action="filtered.php" method='post'>
-        <div class="autocomplete" style="width:300px;">
-            <input id="myInput" type="text" name="selected" placeholder="Search..">
-        </div>
-        <input type="submit">
-    </form>
+    <div class="container">
+        
+        <form autocomplete="off" action="filtered.php" role="search" method='post'>
+            <div style="float:left;width:95%"class="autocomplete">
+                <input id="myInput" type="text" name="selected" placeholder="Search..">
+            </div>
+            <input style="float:right;width:5%" type="submit"/>
+        </form>
+    </div>
+
 
     <script>
         function autocomplete(inp, arr) {

@@ -27,7 +27,7 @@ input[type=file], input[type=text], .cate, .brand {
     font-weight: bold
 }
 
-button:hover {
+.buttonRed:hover {
     opacity: 0.8;
 }
 
@@ -45,4 +45,22 @@ button:hover {
 }
 .labelB{
     font-weight: bold;
+}
+.buttonTag{
+    background-color: rgb(236, 42, 42);
+    color: black;
+    /* padding: 14px 20px; */
+    /* margin-top: 50%;
+    margin-bottom: 50%; */
+    /* border: solid black 1px; */
+    cursor: pointer;
+    /* width: 100%; */
+    font-weight: bold;
+    height: 78%;
+    width: 100%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    /* border: 1px solid #ccc; */
+    box-sizing: border-box;
 }

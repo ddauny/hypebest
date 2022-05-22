@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
 
-    
+
     <link rel="stylesheet" href="css/styleAddPost.css" type="text/css">
     <script src="js/addTag.js"></script>
 
@@ -66,7 +66,7 @@
                         <option value=2>Preferisco non specificare</option>
                     </select>
 
-                    <br><label  class="labelB" for="img">Immagine</label>
+                    <br><label class="labelB" for="img">Immagine</label>
                     <input name="img" id="img" type="file" required />
 
                     <br><label class="labelB" for="interesse">Situazione</label><br>
@@ -81,23 +81,31 @@
                         echo "</select><br>";
                     }
                     ?>
+                        <div class=" labelB">Tag e nome tag</div>
 
-                    <div class="input-group" id="container-input">
-                        <span class="input-group labelB">Tag e nome tag</span>
-                        <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag[]" class="form-control">
-                        <input type="text" placeholder="nome da visualizzare" id="nometag" name="nometag[]" class="form-control">
-                        
+                    <div id="container-input">
+                        <div class="input-group">
+                            <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag[]" class="form-control">
+                            <input type="text" placeholder="nome da visualizzare" id="nometag" name="nometag[]" class="form-control">
+                            <div class="input-group-append">
+                                <!-- <button class="btn btn-outline-secondary" type="button">Button</button> -->
+                                <input type="button" class=" form-control buttonTag" onclick="aggiungiInput()" value="Aggiungi tag" />
+
+                            </div>
+                        </div>
+
+
                     </div>
-                    <input type="button" class="buttonRed" onclick="aggiungiInput()" value="Aggiungi tag"/>
-                    
+                    <!-- <input type="button" class="buttonRed" onclick="aggiungiInput()" value="Aggiungi tag" /> -->
+
                     <!-- <label for="tag"><b>Tag<b></label>
                     <input type="text" placeholder="@utente o link prodotto" id="tag" name="tag">
                     <label for="nometag"><b>Nome Tag<b></label>
                     <input type="text" placeholder="@utente o link prodotto" id="nometag" name="nometag"> -->
-                    
+
                     <!-- <button onclick='addTag()'><b>Tag</b></button> -->
 
-                    <br><button type='submit' class="buttonRed" onclick="submit()">Aggiungi Post</button><br>
+                    <button type='submit' class="buttonRed" onclick="submit()">Aggiungi Post</button><br>
 
                 </div>
 
