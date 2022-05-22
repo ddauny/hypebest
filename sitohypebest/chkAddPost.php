@@ -40,6 +40,9 @@ if ($uploadfile != $uploaddir) {
                     $tipo = "articolo";
                     if (substr($arraytag[$i], 0, 1) == "@") {
                         $tipo = "profilo";
+                        $sql->bind_param("sss", substr($arraytag[$i], 1, strlen($arraytag[$i]) - 1), $tipo, $arraynome[$i]);
+                    } else {
+                        $sql->bind_param("sss", $arraytag[$i], $tipo, $arraynome[$i]);
                     }
                     $sql->bind_param("sss", substr($arraytag[$i], 1, strlen($arraytag[$i]) - 1), $tipo, $arraynome[$i]);
                     $sql->execute();
