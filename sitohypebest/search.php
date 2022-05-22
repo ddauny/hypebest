@@ -57,6 +57,13 @@ if ($result->num_rows > 0) {
             display: inline-block;
         }
 
+        .container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 3px solid #f1f1f1;
+            height: 500px;
+        }
+
         input {
             border: 1px solid transparent;
             background-color: #f1f1f1;
@@ -67,6 +74,8 @@ if ($result->num_rows > 0) {
         input[type=text] {
             background-color: #f1f1f1;
             width: 100%;
+            border-top-left-radius: 6.25em ;
+            border-bottom-left-radius:6.25em ;
         }
 
         input[type=submit] {
@@ -104,6 +113,7 @@ if ($result->num_rows > 0) {
             background-color: DodgerBlue !important;
             color: #ffffff;
         }
+
         .myactive {
             color: black;
         }
@@ -124,13 +134,20 @@ if ($result->num_rows > 0) {
 
     <!--Make sure the form has the autocomplete function switched off:-->
     <div class="container">
-        
         <form autocomplete="off" action="filtered.php" role="search" method='post'>
-            <div style="float:left;width:95%"class="autocomplete">
-                <input id="myInput" type="text" name="selected" placeholder="Search..">
+            <div class="d-flex ">
+
+                <div style="float:left" class="autocomplete w-100">
+                    <input id="myInput" type="text" name="selected" placeholder="Search..">
+                </div>
+                <div class="autocomplete flex-fill">
+                    <input style="float:right;" type="submit" />
+                </div>
             </div>
-            <input style="float:right;width:5%" type="submit"/>
+
         </form>
+
+
     </div>
 
 
