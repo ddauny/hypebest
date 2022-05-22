@@ -84,6 +84,7 @@ if ($result->num_rows > 0) {
         button[type=submit] {
             border: 1px solid transparent;
             padding: 10px;
+            height:100%;
             font-size: 16px;
             background-color: #c82a1e;
             color: #fff;

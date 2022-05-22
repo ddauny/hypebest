@@ -26,6 +26,7 @@ include('login/connection.php');
     <!-- Custom styles for this template -->
     <link href="css/headers.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -43,7 +44,6 @@ include('login/connection.php');
         <div class=''>
             <form id='form' action='chkEdit.php' enctype='multipart/form-data' method='post'>
                 <div class='container'>
-    <form action='chkEdit.php' enctype='multipart/form-data' method='post'>
 
     <label for='email'><b>Email</b></label>
     <input type='email' placeholder='Email' id='email' name='email' value=$row[email] required>
@@ -59,15 +59,27 @@ include('login/connection.php');
 
     <label for='bio'><b>Biografia</b></label>
     <input type='text' id='bio' name='bio' value='$row[bio]' required> 
-    <br><button onclick='submit()'><b>Modifica</b></button><br>
+    <br><button onclick='submit()'><b>Modifica</b></button><br><br>
     </form>
+    
+    <button onclick='mydelete()'><b>Elimina account</b></button>
     </div>
+    
 </div></div>";
         } else {
             header("location:profilo.php?idutente=$_SESSION[idutente]");
         }
     }
     ?>
+    <script>
+        function mydelete() {
+            if (confirm("Sei sicuro di voler cancellare il tuo account?\nLa scelta è irrevocabile") == true) {
+                window.location = "deleteProfile.php";
+            } else {
+                window.location = "profilo.php";
+            }
+        }
+    </script>
 
 
 
