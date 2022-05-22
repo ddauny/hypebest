@@ -23,8 +23,9 @@ if (!isset($_SESSION["idutente"])) {
         $sql = "insert into utente (nome, cognome, email, username, dataNascita, sesso, img, bio, ruolo, password) values ('$nome', '$cognome', '$email', '$username', '$data', '$sesso', '$up', '$bio', '0', '$password')";
         try{
         if ($conn->query($sql) === true) { //ho inserito nel db
-            $sql = "select ID from utente where '$username' = username";
-            $result = mysqli_query($conn, $sql);
+            $sql = $conn->prepare("select ID from utente where ? = username");
+            $sql->bind_param("s", $username);
+            $sql->execute();
             $row = $result->fetch_assoc();
             $_SESSION["idutente"] = $row["ID"];
             echo "cvwopdvcwp";
@@ -43,4 +44,3 @@ if (!isset($_SESSION["idutente"])) {
 } else {
     header("location:../home.php");
 }
-?>
